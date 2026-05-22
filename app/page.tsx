@@ -45,13 +45,12 @@ export default function LandingPage() {
   const [mainImg, setMainImg] = useState(IMGS[0])
   const [activeThumb, setActiveThumb] = useState(0)
   const [selectedSize, setSelectedSize] = useState('36')
-  const [stickySize, setStickySize] = useState('36')
   const [drawerOpen, setDrawerOpen] = useState(false)
 
   const overlayRef = useRef<HTMLDivElement>(null)
 
   function buyNow(size?: string) {
-    const sz = size || stickySize
+    const sz = size || selectedSize
     sessionStorage.setItem('selected_size', sz)
     router.push('/checkout')
   }
@@ -156,11 +155,6 @@ export default function LandingPage() {
           <span className="lp-price-now">R$ 127,90</span>
         </div>
         <div className="lp-eco">Economia de R$ 171,10</div>
-        <div className="lp-installments">
-          <span className="ic" />
-          {' '}ou 12x de <b>R$ 10,66</b>
-        </div>
-
         {/* 10 sizes */}
         <div className="lp-sizes">
           <div className="lp-sizes-label">Tamanho:</div>
@@ -330,7 +324,7 @@ export default function LandingPage() {
         <div className="lp-how">
           {[
             { n: '1', title: 'Escolha seu tamanho', desc: 'Selecione o tamanho do 36 ao 54 e personalize seu kit.' },
-            { n: '2', title: 'Finalize com segurança', desc: 'Pix com desconto ou cartão em até 12x. Compra protegida.' },
+            { n: '2', title: 'Finalize com segurança', desc: 'Pague via Pix de forma rápida e segura. Compra protegida.' },
             { n: '3', title: 'Receba em casa', desc: 'Despacho rápido com rastreio. Vista-se bem o ano inteiro.' },
           ].map((h, i) => (
             <div key={i} className="lp-how-card">
@@ -349,16 +343,6 @@ export default function LandingPage() {
           <div>
             <b>Garantia de 7 dias</b>
             <span>Se não amar o caimento, a gente troca ou devolve seu dinheiro. Sem complicação, conforme o CDC.</span>
-          </div>
-        </div>
-
-        {/* 25 payment pills */}
-        <div className="lp-paypay">
-          <h4>PAGUE COMO PREFERIR</h4>
-          <div className="lp-pills">
-            {['PIX -5%','Visa','Master','Elo','Amex','12x'].map(p => (
-              <span key={p}>{p}</span>
-            ))}
           </div>
         </div>
 
@@ -389,7 +373,7 @@ export default function LandingPage() {
             { q: 'Como escolho meu tamanho?', a: 'A modelagem segue padrão brasileiro (do 36 ao 54). Em caso de dúvida entre dois tamanhos, recomendamos optar pelo maior para mais conforto.' },
             { q: 'E se não servir?', a: 'Você tem até 7 dias após o recebimento para solicitar a troca ou devolução, sem burocracia, conforme o Código de Defesa do Consumidor.' },
             { q: 'Quanto tempo demora pra chegar?', a: 'Despachamos rapidamente do Brasil com código de rastreio. Capitais geralmente recebem em poucos dias úteis.' },
-            { q: 'Como é feito o pagamento?', a: 'Aceitamos cartão em até 12x, Pix com desconto de 5% e boleto. Tudo via ambiente seguro com criptografia.' },
+            { q: 'Como é feito o pagamento?', a: 'Aceitamos Pix. Tudo via ambiente seguro com criptografia.' },
           ].map((item, i) => (
             <details key={i} open>
               <summary>{item.q}</summary>
@@ -407,7 +391,7 @@ export default function LandingPage() {
             <span className="now">R$ 127,90</span>
             <span className="old">R$ 299,00</span>
           </div>
-          <div className="lp-cta-ext">ou 12x no cartão · Pix com 5% OFF</div>
+          <div className="lp-cta-ext">Pagamento via Pix · Entrega garantida</div>
         </div>
 
         {/* 29-31 specs */}
@@ -461,7 +445,7 @@ export default function LandingPage() {
             { icon: <svg viewBox="0 0 24 24"><path d="M3 7h13v10H3z"/><path d="M16 10h4l1 2v5h-5z"/><circle cx="7" cy="18" r="1.5"/><circle cx="18" cy="18" r="1.5"/></svg>, title: 'FRETE GRÁTIS', desc: 'Envio imediato para todo o Brasil' },
             { icon: <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>, title: 'DEVOLUÇÃO', desc: '90 dias de garantia em todas as suas compras' },
             { icon: <svg viewBox="0 0 24 24"><path d="M12 22s7-7 7-13a7 7 0 10-14 0c0 6 7 13 7 13z"/><circle cx="12" cy="9" r="2.5"/></svg>, title: 'RASTREIO', desc: 'Atualizações em tempo real do seu pedido' },
-            { icon: <svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 11h20"/></svg>, title: 'PAGAMENTO', desc: 'Até 12x no cartão ou PIX com desconto' },
+            { icon: <svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 11h20"/></svg>, title: 'PAGAMENTO', desc: 'Pix seguro com confirmação automática' },
           ].map((w, i) => (
             <div key={i} className="lp-whycard">
               {w.icon}
@@ -558,25 +542,6 @@ export default function LandingPage() {
             <a key={l} href="#">{l}</a>
           ))}
         </footer>
-
-        {/* 45 sticky bar */}
-        <div className="lp-sticky">
-          <div className="lp-sticky-lbl">TAMANHO:</div>
-          <select
-            value={stickySize}
-            onChange={e => setStickySize(e.target.value)}
-            aria-label="Selecione o tamanho"
-          >
-            {SIZES.map(sz => <option key={sz} value={sz}>{sz}</option>)}
-          </select>
-          <button className="lp-stk-buy" onClick={() => buyNow(stickySize)}>
-            <span className="left">
-              <svg viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-12L5 3H2"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>
-              COMPRAR AGORA
-            </span>
-            <span>R$ 127,90</span>
-          </button>
-        </div>
 
       </div>
     </>
