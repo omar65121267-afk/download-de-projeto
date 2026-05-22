@@ -2,10 +2,11 @@ type Props = {
   freteLabel: string
   freteVal: number
   total: number
+  size: string
   fmt: (n: number) => string
 }
 
-export default function OrderSummary({ freteLabel, freteVal, total, fmt }: Props) {
+export default function OrderSummary({ freteLabel, freteVal, total, size, fmt }: Props) {
   return (
     <div className="card">
       <h2>Resumo do pedido</h2>
@@ -15,16 +16,16 @@ export default function OrderSummary({ freteLabel, freteVal, total, fmt }: Props
         <div className="row total"><span>Total</span><span>{fmt(total)}</span></div>
       </div>
       <div className="prod">
-        <div className="ph" style={{ width: 54, height: 54, borderRadius: 8, background: '#111', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5">
-            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
-            <line x1="3" y1="6" x2="21" y2="6"/>
-            <path d="M16 10a4 4 0 01-8 0"/>
-          </svg>
-        </div>
+        <img
+          src="/assets/fotoproduto1.webp"
+          alt="Kit 5 Calças ZYRON"
+          width={54}
+          height={54}
+          style={{ width: 54, height: 54, borderRadius: 8, objectFit: 'cover', flexShrink: 0 }}
+        />
         <div className="info">
           <b>Kit 5 Calças Masculinas em Sarja Retrô Premium – Pague 3, Leve 5</b>
-          <div className="var">Kit 5 Calças – R$ 127,90</div>
+          <div className="var">Tamanho: {size} · Kit 5 Calças</div>
           <div className="pr">R$ 127,90</div>
         </div>
       </div>

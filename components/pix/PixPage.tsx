@@ -12,9 +12,10 @@ type Props = {
   qrCode: string
   amount: number   // centavos
   expiresAt: string
+  size: string
 }
 
-export default function PixPage({ transactionId, qrCode, amount, expiresAt }: Props) {
+export default function PixPage({ transactionId, qrCode, amount, expiresAt, size }: Props) {
   const [qrDataUrl, setQrDataUrl] = useState<string>('')
   const [copied, setCopied] = useState(false)
   const [status, setStatus] = useState<Status>('pending')
@@ -92,6 +93,22 @@ export default function PixPage({ transactionId, qrCode, amount, expiresAt }: Pr
       <div className="pix-card">
         <h2>PIX Copia e Cola</h2>
         <div className="sub">Após o pagamento, a confirmação é automática</div>
+
+        {/* Resumo do produto */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, background: '#f3f4f6', borderRadius: 10, padding: '10px 14px', marginBottom: 18, textAlign: 'left' }}>
+          <img
+            src="/assets/fotoproduto1.webp"
+            alt="Kit 5 Calças ZYRON"
+            width={54}
+            height={54}
+            style={{ width: 54, height: 54, borderRadius: 8, objectFit: 'cover', flexShrink: 0 }}
+          />
+          <div style={{ flex: 1 }}>
+            <div style={{ fontWeight: 700, fontSize: 13, color: '#111', lineHeight: 1.35 }}>Kit 5 Calças Masculinas em Sarja Retrô Premium</div>
+            <div style={{ color: '#6b7280', fontSize: 12, marginTop: 3 }}>Tamanho: <strong style={{ color: '#111' }}>{size}</strong> · Kit 5 Calças</div>
+            <div style={{ fontWeight: 800, fontSize: 14, color: '#111', marginTop: 4 }}>R$ 127,90</div>
+          </div>
+        </div>
 
         {/* QR Code */}
         <div className="qr-wrap">

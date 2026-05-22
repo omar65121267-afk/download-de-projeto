@@ -8,6 +8,7 @@ export default function PixContent() {
   const [qr, setQr] = useState('')
   const [amount, setAmount] = useState(12790)
   const [expires, setExpires] = useState('')
+  const [size, setSize] = useState('36')
   const [ready, setReady] = useState(false)
 
   useEffect(() => {
@@ -15,10 +16,12 @@ export default function PixContent() {
     const q = sessionStorage.getItem('pix_qr') || ''
     const a = parseInt(sessionStorage.getItem('pix_amount') || '12790', 10)
     const e = sessionStorage.getItem('pix_expires') || ''
+    const s = sessionStorage.getItem('pix_size') || sessionStorage.getItem('selected_size') || '36'
     setTxid(t)
     setQr(q)
     setAmount(a)
     setExpires(e)
+    setSize(s)
     setReady(true)
   }, [])
 
@@ -44,6 +47,7 @@ export default function PixContent() {
       qrCode={qr}
       amount={amount}
       expiresAt={expires}
+      size={size}
     />
   )
 }

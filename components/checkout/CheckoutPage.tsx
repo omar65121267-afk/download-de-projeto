@@ -33,6 +33,13 @@ export default function CheckoutPage() {
   const [personal, setPersonal] = useState<PersonalData | null>(null)
   const [delivery, setDelivery] = useState<DeliveryData | null>(null)
   const [loading, setLoading] = useState(false)
+  const [selectedSize, setSelectedSize] = useState('36')
+
+  // Lê o tamanho salvo pela landing page
+  useEffect(() => {
+    const sz = sessionStorage.getItem('selected_size')
+    if (sz) setSelectedSize(sz)
+  }, [])
 
   // countdown timer 19:29
   const [secs, setSecs] = useState(19 * 60 + 29)
@@ -109,6 +116,7 @@ export default function CheckoutPage() {
       sessionStorage.setItem('pix_qr', data.qr_code || '')
       sessionStorage.setItem('pix_amount', String(data.amount ?? 12790))
       sessionStorage.setItem('pix_expires', data.expires_at || '')
+      sessionStorage.setItem('pix_size', selectedSize)
       router.push('/pix')
     } catch (err) {
       alert('Erro ao gerar PIX: ' + (err as Error).message)
@@ -149,6 +157,7 @@ export default function CheckoutPage() {
         freteLabel={delivery?.dlvPrice || 'Grátis'}
         freteVal={freteVal}
         total={total}
+        size={selectedSize}
         fmt={fmt}
       />
 
