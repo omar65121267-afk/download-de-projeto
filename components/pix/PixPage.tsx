@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import QRCode from 'qrcode'
 
-const UPSELL_URL = '/obrigado'
+const UPSELL_URL = '/frete'
 
 type Status = 'pending' | 'approved' | 'failed' | 'refunded'
 
