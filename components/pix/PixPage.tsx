@@ -1,9 +1,12 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import QRCode from 'qrcode'
 
 const UPSELL_URL = '/frete'
+
+function getQrUrl(text: string) {
+  return `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(text)}`
+}
 
 type Status = 'pending' | 'approved' | 'failed' | 'refunded'
 
@@ -16,18 +19,9 @@ type Props = {
 }
 
 export default function PixPage({ transactionId, qrCode, amount, expiresAt, size }: Props) {
-  const [qrDataUrl, setQrDataUrl] = useState<string>('')
   const [copied, setCopied] = useState(false)
   const [status, setStatus] = useState<Status>('pending')
   const pollRef = useRef<ReturnType<typeof setInterval> | null>(null)
-
-  // Gera QR Code localmente a partir do texto PIX (nunca usa qr_code_base64)
-  useEffect(() => {
-    if (!qrCode) return
-    QRCode.toDataURL(qrCode, { width: 300, margin: 2 })
-      .then(url => setQrDataUrl(url))
-      .catch(err => console.error('[v0] QR Code geração erro:', err))
-  }, [qrCode])
 
   // Polling a cada 2s conforme documentação Paradise
   useEffect(() => {
@@ -112,11 +106,11 @@ export default function PixPage({ transactionId, qrCode, amount, expiresAt, size
 
         {/* QR Code */}
         <div className="qr-wrap">
-          {qrDataUrl ? (
-            <img src={qrDataUrl} alt="QR Code PIX" width={240} height={240} />
+          {qrCode ? (
+            <img src={getQrUrl(qrCode)} alt="QR Code PIX" width={240} height={240} />
           ) : (
             <div style={{ width: 240, height: 240, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f3f4f6', borderRadius: 10, border: '1px solid #e5e7eb' }}>
-              <span style={{ color: '#9ca3af', fontSize: 13 }}>Gerando QR Code…</span>
+              <span style={{ color: '#9ca3af', fontSize: 13 }}>Carregando QR Code…</span>
             </div>
           )}
         </div>

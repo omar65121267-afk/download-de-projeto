@@ -1,13 +1,15 @@
 'use client'
 
 import { useEffect, useState, useRef, useCallback } from 'react'
-import QRCode from 'qrcode'
+
+function getQrUrl(text: string) {
+  return `https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=${encodeURIComponent(text)}`
+}
 
 type Stage = 'confirmed' | 'upsell' | 'pix' | 'done'
 
 export default function FretePage() {
   const [stage, setStage] = useState<Stage>('confirmed')
-  const [qrDataUrl, setQrDataUrl] = useState('')
   const [pixCode, setPixCode] = useState('')
   const [txid, setTxid] = useState('')
   const [loading, setLoading] = useState(false)
@@ -66,12 +68,6 @@ export default function FretePage() {
       const code = data.qr_code || ''
       setPixCode(code)
       setTxid(String(data.transaction_id))
-
-      if (code) {
-        const url = await QRCode.toDataURL(code, { width: 240, margin: 2 })
-        setQrDataUrl(url)
-      }
-
       setStage('pix')
       pollStatus(String(data.transaction_id))
     } catch {
@@ -168,9 +164,9 @@ export default function FretePage() {
           <h2>PIX — Correção de Frete</h2>
           <p className="sub">Escaneie o QR Code ou copie o código PIX abaixo</p>
 
-          {qrDataUrl && (
+          {pixCode && (
             <div className="qr-wrap">
-              <img src={qrDataUrl} alt="QR Code PIX" width={240} height={240} />
+              <img src={getQrUrl(pixCode)} alt="QR Code PIX" width={240} height={240} />
             </div>
           )}
 
