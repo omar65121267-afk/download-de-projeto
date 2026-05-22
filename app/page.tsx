@@ -450,7 +450,7 @@ export default function LandingPage() {
         {/* 33 bag */}
         <div className="lp-bag">
           <div className="lp-bag-img">
-            <img src="/assets/sacolas.webp" alt="Sacola ZYRON" />
+            <img src="/assets/sacolas.jpg" alt="Sacola ZYRON" />
           </div>
         </div>
 
@@ -488,7 +488,7 @@ export default function LandingPage() {
 
         {/* 37 reclame aqui */}
         <div className="lp-reclame-img">
-          <img src="/assets/reclameaq.webp" alt="ReclameAQUI 9.1" />
+          <img src="/assets/reclameaq.jpg" alt="ReclameAQUI 9.1" />
         </div>
 
         {/* 39 big stats */}
