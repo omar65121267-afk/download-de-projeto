@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, Cinzel } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import Script from 'next/script'
 import './globals.css'
 
 const inter = Inter({
@@ -47,6 +48,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`bg-[#f4f4f5] ${inter.variable} ${cinzel.variable}`}>
+      <head>
+        {/* Utmify UTM tracker */}
+        <Script
+          src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+          data-utmify-prevent-xcod-sck=""
+          data-utmify-prevent-subids=""
+          strategy="afterInteractive"
+        />
+        {/* Utmify TikTok Pixel */}
+        <Script id="utmify-tiktok" strategy="afterInteractive">{`
+          window.tikTokPixelId = "6a10b97ec68c45ed8ef59791";
+          var a = document.createElement("script");
+          a.setAttribute("async", "");
+          a.setAttribute("defer", "");
+          a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel-tiktok.js");
+          document.head.appendChild(a);
+        `}</Script>
+      </head>
       <body className="antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
