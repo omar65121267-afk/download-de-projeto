@@ -2,10 +2,9 @@
 @import 'tw-animate-css';
 
 /* ─── ZYRON Checkout Styles ─────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html,body{font-family:'Inter',system-ui,sans-serif;color:#111;background:#f4f4f5;font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+html,body{font-family:var(--font-inter,'Inter',system-ui,sans-serif);color:#111;background:#f4f4f5;font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 button{font-family:inherit;cursor:pointer;border:0;background:none}
 input,select{font-family:inherit;font-size:14px;color:#111}
@@ -19,7 +18,7 @@ input,select{font-family:inherit;font-size:14px;color:#111}
 /* header */
 .zy-header{background:#000;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:14px 18px}
 .menu-btn{font-size:22px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;color:#fff}
-.logo{font-family:'Cinzel',serif;font-weight:700;font-size:26px;letter-spacing:4px;color:#fff;flex:1;text-align:center}
+.logo{font-family:var(--font-cinzel,'Cinzel',serif);font-weight:700;font-size:26px;letter-spacing:4px;color:#fff;flex:1;text-align:center}
 
 /* banner */
 .banner{background:#2a2a2a;color:#fff;text-align:center;padding:10px 14px;font-size:12px;line-height:1.5}

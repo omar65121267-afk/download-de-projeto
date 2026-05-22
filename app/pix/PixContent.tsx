@@ -1,20 +1,39 @@
 'use client'
 
-import { useSearchParams } from 'next/navigation'
+import { useEffect, useState } from 'react'
 import PixPage from '@/components/pix/PixPage'
 
 export default function PixContent() {
-  const params = useSearchParams()
+  const [txid, setTxid] = useState('')
+  const [qr, setQr] = useState('')
+  const [amount, setAmount] = useState(12790)
+  const [expires, setExpires] = useState('')
+  const [ready, setReady] = useState(false)
 
-  const txid = params.get('txid') || ''
-  const qr = params.get('qr') || ''
-  const amount = parseInt(params.get('amount') || '12790', 10)
-  const expires = params.get('expires') || ''
+  useEffect(() => {
+    const t = sessionStorage.getItem('pix_txid') || ''
+    const q = sessionStorage.getItem('pix_qr') || ''
+    const a = parseInt(sessionStorage.getItem('pix_amount') || '12790', 10)
+    const e = sessionStorage.getItem('pix_expires') || ''
+    setTxid(t)
+    setQr(q)
+    setAmount(a)
+    setExpires(e)
+    setReady(true)
+  }, [])
+
+  if (!ready) {
+    return (
+      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f4f4f5' }}>
+        <p style={{ color: '#6b7280', fontSize: 14 }}>Carregando…</p>
+      </div>
+    )
+  }
 
   if (!txid || !qr) {
     return (
       <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f4f4f5' }}>
-        <p style={{ color: '#dc2626', fontSize: 14 }}>Dados do PIX não encontrados. Volte ao checkout.</p>
+        <p style={{ color: '#dc2626', fontSize: 14 }}>Dados do PIX não encontrados. <a href="/" style={{ color: '#7c3aed', textDecoration: 'underline' }}>Volte ao checkout.</a></p>
       </div>
     )
   }

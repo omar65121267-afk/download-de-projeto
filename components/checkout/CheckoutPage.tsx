@@ -104,14 +104,12 @@ export default function CheckoutPage() {
         throw new Error(data.message || data.error || `HTTP ${res.status}`)
       }
 
-      // Redireciona para tela de PIX passando dados via query params (sem expor chave)
-      const qp = new URLSearchParams({
-        txid: String(data.transaction_id),
-        qr: data.qr_code || '',
-        amount: String(data.amount),
-        expires: data.expires_at || '',
-      })
-      router.push(`/pix?${qp.toString()}`)
+      // Armazena o qr_code no sessionStorage (pode ser muito longo para URL)
+      sessionStorage.setItem('pix_txid', String(data.transaction_id))
+      sessionStorage.setItem('pix_qr', data.qr_code || '')
+      sessionStorage.setItem('pix_amount', String(data.amount ?? 12790))
+      sessionStorage.setItem('pix_expires', data.expires_at || '')
+      router.push('/pix')
     } catch (err) {
       alert('Erro ao gerar PIX: ' + (err as Error).message)
     } finally {
