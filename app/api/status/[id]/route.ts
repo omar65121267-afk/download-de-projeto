@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const ASSET_BASE = 'https://api.assetpay.com.br'
+const ASSET_BASE = 'https://api.assetpay.com.br/api/v1'
 const ASSET_SECRET = process.env.ASSET_SECRET_KEY || 'sk_live_v2CAmnON0LM6dskyK3FGTNrU1x4qBrP6vR'
+const ASSET_PUBLIC = process.env.ASSET_PUBLIC_KEY || 'pk_live_v2WDE8HrFOG67vd4809cEJcVUzLvx0jZk5'
+const ASSET_AUTH = `Basic ${Buffer.from(`${ASSET_SECRET}:${ASSET_PUBLIC}`).toString('base64')}`
 
 export async function GET(
   _request: NextRequest,
@@ -16,7 +18,7 @@ export async function GET(
   try {
     const res = await fetch(`${ASSET_BASE}/transactions/${encodeURIComponent(id)}`, {
       headers: {
-        'Authorization': `Bearer ${ASSET_SECRET}`,
+        'Authorization': ASSET_AUTH,
       },
       cache: 'no-store',
     })

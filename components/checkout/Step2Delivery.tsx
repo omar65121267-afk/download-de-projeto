@@ -6,7 +6,6 @@ import type { DeliveryData } from './CheckoutPage'
 const DELIVERY_OPTIONS = [
   { dlv: 'PAC', label: 'Correios - PAC', desc: '3 a 9 dias', price: 'Grátis', val: 0 },
   { dlv: 'SEDEX', label: 'Correios - SEDEX', desc: '2 a 5 dias', price: 'R$ 27,44', val: 27.44 },
-  { dlv: 'FULL', label: 'FULL - Dia Seguinte', desc: '1 a 2 dias', price: 'R$ 39,25', val: 39.25 },
 ]
 
 function maskCEP(v: string) {
