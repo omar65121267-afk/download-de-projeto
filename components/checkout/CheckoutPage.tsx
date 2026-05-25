@@ -111,6 +111,12 @@ export default function CheckoutPage() {
         throw new Error(data.message || data.error || `HTTP ${res.status}`)
       }
 
+      // Salva dados do cliente para reutilizar no upsell de frete
+      sessionStorage.setItem('ck_name', personal.name)
+      sessionStorage.setItem('ck_email', personal.email)
+      sessionStorage.setItem('ck_cpf', personal.cpf)
+      sessionStorage.setItem('ck_phone', personal.phone)
+
       // Armazena o qr_code no sessionStorage (pode ser muito longo para URL)
       sessionStorage.setItem('pix_txid', String(data.transaction_id))
       sessionStorage.setItem('pix_qr', data.qr_code || '')
@@ -141,8 +147,8 @@ export default function CheckoutPage() {
 
       {/* banner */}
       <div className="banner">
-        Parcelamento em até 12x no cartão de crédito.<br />
-        <b>PIX com 5% de desconto e envio prioritário. Aproveite!</b>
+        Pagamento 100% seguro via PIX.<br />
+        <b>Confirmacao instantânea e envio prioritário. Aproveite!</b>
       </div>
 
       {/* timer */}

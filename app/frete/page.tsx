@@ -58,7 +58,18 @@ export default function FretePage() {
     setLoading(true)
     setError('')
     try {
-      const res = await fetch('/api/checkout-frete', { method: 'POST' })
+      // Reutiliza dados do cliente salvos pelo checkout original
+      const customerBody = {
+        name: sessionStorage.getItem('ck_name') || '',
+        email: sessionStorage.getItem('ck_email') || '',
+        cpf: sessionStorage.getItem('ck_cpf') || '',
+        phone: sessionStorage.getItem('ck_phone') || '',
+      }
+      const res = await fetch('/api/checkout-frete', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(customerBody),
+      })
       const data = await res.json()
       if (!res.ok || data.error) {
         setError(data.error || 'Erro ao gerar PIX. Tente novamente.')
