@@ -1,9 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const PARADISE_BASE = 'https://multi.paradisepags.com'
-const PARADISE_API_KEY = process.env.PARADISE_API_KEY || 'sk_86ded9d2236dffd4db9a7a801b72d50fa1f4c0d54f7a060c0e324cd09ca0faae'
-const PRODUCT_HASH = process.env.PARADISE_PRODUCT_HASH || 'prod_a1bf7e58125dc426'
-const ACCOUNT_ID = process.env.PARADISE_ACCOUNT_ID || '7621'
+const ASSET_BASE = 'https://api.assetpay.com.br'
+const ASSET_SECRET = process.env.ASSET_SECRET_KEY || 'sk_live_v2CAmnON0LM6dskyK3FGTNrU1x4qBrP6vR'
 
 const onlyDigits = (s: string) => String(s || '').replace(/\D/g, '')
 
@@ -19,7 +17,7 @@ export async function POST(request: NextRequest) {
   const phone = onlyDigits(body.phone)
   const freteVal = Number(body.frete || 0)
 
-  const SUBTOTAL_CENTS = 12790 // R$ 127,90 em centavos
+  const SUBTOTAL_CENTS = 12790 // R$ 127,90
   const freteCents = Math.round(freteVal * 100)
   const totalCents = SUBTOTAL_CENTS + freteCents
 
@@ -30,34 +28,56 @@ export async function POST(request: NextRequest) {
     )
   }
 
-  const reference = `REF-${ACCOUNT_ID}-${Date.now()}-${Math.random().toString(36).substring(2, 8)}`
+  const externalRef = `ZYRON-${Date.now()}-${Math.random().toString(36).substring(2, 7).toUpperCase()}`
 
-  // Captura tracking se enviado pelo frontend
-  const tracking = body.tracking ? JSON.parse(body.tracking) : null
-
-  const payload: Record<string, unknown> = {
+  const payload = {
     amount: totalCents,
-    description: 'Kit 5 Calças Masculinas em Sarja Retrô Premium – Pague 3, Leve 5',
-    reference,
-    productHash: PRODUCT_HASH,
+    paymentMethod: 'PIX',
+    externalRef,
+    postbackUrl: `${process.env.NEXT_PUBLIC_BASE_URL || 'https://v0-loja-zyron.vercel.app'}/api/webhook`,
     customer: {
       name: body.name,
       email: body.email,
       phone: phone || '11999999999',
-      document: cpf,
+      document: {
+        type: 'CPF',
+        number: cpf,
+      },
+    },
+    address: body.cep ? {
+      zipCode: body.cep,
+      street: body.street || '',
+      number: body.addressNumber || 'S/N',
+      complement: body.complement || '',
+      neighborhood: body.neighborhood || '',
+      city: body.city || '',
+      state: body.state || '',
+      country: 'Brasil',
+    } : undefined,
+    items: [
+      {
+        title: 'Kit 5 Calças Masculinas em Sarja Retrô Premium – Pague 3, Leve 5',
+        description: `Tamanho: ${body.size || ''}`,
+        unitPrice: totalCents,
+        quantity: 1,
+        type: 'physical',
+      },
+    ],
+    pix: {
+      expiresInDays: 1,
+    },
+    metadata: {
+      size: body.size || '',
+      origem: 'checkout',
     },
   }
 
-  if (tracking) {
-    payload.tracking = tracking
-  }
-
   try {
-    const res = await fetch(`${PARADISE_BASE}/api/v1/transaction.php`, {
+    const res = await fetch(`${ASSET_BASE}/transactions`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'X-API-Key': PARADISE_API_KEY,
+        'Authorization': `Bearer ${ASSET_SECRET}`,
       },
       body: JSON.stringify(payload),
     })
@@ -70,21 +90,23 @@ export async function POST(request: NextRequest) {
       data = { raw: text }
     }
 
-    if (!res.ok || (data.status && data.status !== 'success')) {
-      console.error('[Paradise] Erro na criação:', data)
-      return NextResponse.json(data, { status: res.ok ? 400 : res.status })
+    if (!res.ok) {
+      console.error('[AssetPay] Erro na criação:', data)
+      return NextResponse.json(data, { status: res.status })
     }
 
+    const pix = data.pix as Record<string, string> | undefined
+
     return NextResponse.json({
-      transaction_id: data.transaction_id,
-      id: data.id,
-      qr_code: data.qr_code,
+      transaction_id: data.id,
+      qr_code: pix?.qrcode || '',
+      qr_code_url: pix?.qrcodeUrl || '',
       amount: data.amount,
-      expires_at: data.expires_at,
-      reference,
+      expires_at: pix?.expirationDate || '',
+      external_ref: externalRef,
     })
   } catch (err) {
-    console.error('[Paradise] Erro interno:', err)
+    console.error('[AssetPay] Erro interno:', err)
     return NextResponse.json(
       { error: 'Erro interno', message: (err as Error).message },
       { status: 500 }

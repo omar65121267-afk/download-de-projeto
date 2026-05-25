@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const PARADISE_BASE = 'https://multi.paradisepags.com'
-const PARADISE_API_KEY = process.env.PARADISE_API_KEY || 'sk_86ded9d2236dffd4db9a7a801b72d50fa1f4c0d54f7a060c0e324cd09ca0faae'
+const ASSET_BASE = 'https://api.assetpay.com.br'
+const ASSET_SECRET = process.env.ASSET_SECRET_KEY || 'sk_live_v2CAmnON0LM6dskyK3FGTNrU1x4qBrP6vR'
 
 export async function GET(
   _request: NextRequest,
@@ -14,13 +14,12 @@ export async function GET(
   }
 
   try {
-    const res = await fetch(
-      `${PARADISE_BASE}/api/v1/query.php?action=get_transaction&id=${encodeURIComponent(id)}`,
-      {
-        headers: { 'X-API-Key': PARADISE_API_KEY },
-        cache: 'no-store',
-      }
-    )
+    const res = await fetch(`${ASSET_BASE}/transactions/${encodeURIComponent(id)}`, {
+      headers: {
+        'Authorization': `Bearer ${ASSET_SECRET}`,
+      },
+      cache: 'no-store',
+    })
 
     const text = await res.text()
     let data: Record<string, unknown>
@@ -34,12 +33,17 @@ export async function GET(
       return NextResponse.json(data, { status: res.status })
     }
 
+    // AssetPay usa "paid" como status de aprovado
+    // Normaliza para "approved" para manter compatibilidade com o frontend
+    const rawStatus = data.status as string
+    const normalizedStatus = rawStatus === 'paid' ? 'approved' : rawStatus
+
     return NextResponse.json({
-      transaction_id: data.transaction_id || id,
-      status: data.status,
+      transaction_id: data.id || id,
+      status: normalizedStatus,
     })
   } catch (err) {
-    console.error('[Paradise] Erro ao consultar status:', err)
+    console.error('[AssetPay] Erro ao consultar status:', err)
     return NextResponse.json(
       { error: 'Erro interno', message: (err as Error).message },
       { status: 500 }

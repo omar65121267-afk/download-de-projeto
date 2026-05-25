@@ -1,35 +1,65 @@
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 
-const PARADISE_BASE = 'https://multi.paradisepags.com'
-const PARADISE_API_KEY = process.env.PARADISE_API_KEY || 'sk_86ded9d2236dffd4db9a7a801b72d50fa1f4c0d54f7a060c0e324cd09ca0faae'
-const PRODUCT_HASH = process.env.PARADISE_PRODUCT_HASH || 'prod_a1bf7e58125dc426'
-const ACCOUNT_ID = process.env.PARADISE_ACCOUNT_ID || '7621'
+const ASSET_BASE = 'https://api.assetpay.com.br'
+const ASSET_SECRET = process.env.ASSET_SECRET_KEY || 'sk_live_v2CAmnON0LM6dskyK3FGTNrU1x4qBrP6vR'
 
 // R$ 21,35 em centavos
 const FRETE_CORRECTION_CENTS = 2135
 
-export async function POST() {
-  const reference = `FRETE-${ACCOUNT_ID}-${Date.now()}-${Math.random().toString(36).substring(2, 8)}`
+export async function POST(request: NextRequest) {
+  let customerName = 'Cliente ZYRON'
+  let customerEmail = 'cliente@zyron.com.br'
+  let customerCpf = '00000000000'
+  let customerPhone = '11999999999'
+
+  // Tenta ler dados do cliente passados pelo frontend (sessão do pedido original)
+  try {
+    const body = await request.json()
+    if (body.name) customerName = body.name
+    if (body.email) customerEmail = body.email
+    if (body.cpf) customerCpf = String(body.cpf).replace(/\D/g, '')
+    if (body.phone) customerPhone = String(body.phone).replace(/\D/g, '')
+  } catch {
+    // usa fallback acima
+  }
+
+  const externalRef = `FRETE-ZYRON-${Date.now()}-${Math.random().toString(36).substring(2, 7).toUpperCase()}`
 
   const payload = {
     amount: FRETE_CORRECTION_CENTS,
-    description: 'Correção de frete do pedido',
-    reference,
-    productHash: PRODUCT_HASH,
+    paymentMethod: 'PIX',
+    externalRef,
     customer: {
-      name: 'Cliente ZYRON',
-      email: 'cliente@zyron.com.br',
-      phone: '11999999999',
-      document: '00000000000',
+      name: customerName,
+      email: customerEmail,
+      phone: customerPhone,
+      document: {
+        type: 'CPF',
+        number: customerCpf,
+      },
+    },
+    items: [
+      {
+        title: 'Correção de frete do pedido ZYRON',
+        unitPrice: FRETE_CORRECTION_CENTS,
+        quantity: 1,
+        type: 'physical',
+      },
+    ],
+    pix: {
+      expiresInDays: 1,
+    },
+    metadata: {
+      origem: 'upsell-frete',
     },
   }
 
   try {
-    const res = await fetch(`${PARADISE_BASE}/api/v1/transaction.php`, {
+    const res = await fetch(`${ASSET_BASE}/transactions`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'X-API-Key': PARADISE_API_KEY,
+        'Authorization': `Bearer ${ASSET_SECRET}`,
       },
       body: JSON.stringify(payload),
     })
@@ -43,18 +73,22 @@ export async function POST() {
     }
 
     if (!res.ok) {
-      console.error('[Paradise Frete] Erro:', data)
+      console.error('[AssetPay Frete] Erro:', data)
       return NextResponse.json(data, { status: res.status })
     }
 
+    const pix = data.pix as Record<string, string> | undefined
+
     return NextResponse.json({
-      transaction_id: data.transaction_id,
-      qr_code: data.qr_code,
+      transaction_id: data.id,
+      qr_code: pix?.qrcode || '',
+      qr_code_url: pix?.qrcodeUrl || '',
       amount: FRETE_CORRECTION_CENTS,
-      reference,
+      expires_at: pix?.expirationDate || '',
+      external_ref: externalRef,
     })
   } catch (err) {
-    console.error('[Paradise Frete] Erro interno:', err)
+    console.error('[AssetPay Frete] Erro interno:', err)
     return NextResponse.json(
       { error: 'Erro interno', message: (err as Error).message },
       { status: 500 }
