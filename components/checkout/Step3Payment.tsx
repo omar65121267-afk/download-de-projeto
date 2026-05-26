@@ -1,10 +1,12 @@
 type Props = {
   active: boolean
   loading: boolean
+  totalPix: number
+  fmt: (n: number) => string
   onFinalize: () => void
 }
 
-export default function Step3Payment({ active, loading, onFinalize }: Props) {
+export default function Step3Payment({ active, loading, totalPix, fmt, onFinalize }: Props) {
   return (
     <div className={`card ${!active ? 'card-dis' : ''}`}>
       <h2>Opção de pagamento</h2>
@@ -28,22 +30,28 @@ export default function Step3Payment({ active, loading, onFinalize }: Props) {
 
           <button
             className="btn"
-            style={{ marginTop: 14 }}
+            style={{ marginTop: 14, justifyContent: 'space-between' }}
             onClick={onFinalize}
             disabled={loading}
           >
             {loading ? (
-              'Gerando PIX…'
+              <span style={{ width: '100%', textAlign: 'center' }}>Gerando PIX…</span>
             ) : (
               <>
-                <svg viewBox="0 0 24 24" width={18} height={18} fill="none" stroke="white" strokeWidth="1.8" aria-hidden="true">
-                  <rect x="4" y="11" width="16" height="10" rx="2"/>
-                  <path d="M8 11V7a4 4 0 018 0v4"/>
-                </svg>
-                Finalizar Compra
+                <span style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                  <svg viewBox="0 0 24 24" width={18} height={18} fill="none" stroke="white" strokeWidth="1.8" aria-hidden="true">
+                    <rect x="4" y="11" width="16" height="10" rx="2"/>
+                    <path d="M8 11V7a4 4 0 018 0v4"/>
+                  </svg>
+                  Finalizar com PIX
+                </span>
+                <span style={{ fontWeight: 800, fontSize: 16 }}>{fmt(totalPix)}</span>
               </>
             )}
           </button>
+          <p style={{ textAlign: 'center', fontSize: 12, color: '#16a34a', fontWeight: 600, marginTop: 8 }}>
+            5% de desconto aplicado automaticamente no PIX
+          </p>
         </>
       )}
     </div>

@@ -51,8 +51,11 @@ export default function CheckoutPage() {
   const ss = String(secs % 60).padStart(2, '0')
 
   const SUBTOTAL = 127.9
+  const PIX_DISCOUNT = 0.05
   const freteVal = delivery?.freteVal ?? 0
   const total = SUBTOTAL + freteVal
+  const pixDiscount = Math.round(total * PIX_DISCOUNT * 100) / 100
+  const totalPix = Math.round((total - pixDiscount) * 100) / 100
   const fmt = (n: number) => `R$ ${n.toFixed(2).replace('.', ',')}`
 
   const step2Ref = useRef<HTMLDivElement>(null)
@@ -95,6 +98,7 @@ export default function CheckoutPage() {
         uf: delivery.uf,
         frete: String(delivery.freteVal),
         frete_label: delivery.dlv,
+        amount: String(Math.round(totalPix * 100)), // centavos com desconto PIX 5%
       }
       if (Object.keys(tracking).length > 0) {
         payload.tracking = JSON.stringify(tracking)
@@ -120,7 +124,7 @@ export default function CheckoutPage() {
       // Armazena o qr_code no sessionStorage (pode ser muito longo para URL)
       sessionStorage.setItem('pix_txid', String(data.transaction_id))
       sessionStorage.setItem('pix_qr', data.qr_code || '')
-      sessionStorage.setItem('pix_amount', String(data.amount ?? 12790))
+      sessionStorage.setItem('pix_amount', String(Math.round(totalPix * 100)))
       sessionStorage.setItem('pix_expires', data.expires_at || '')
       sessionStorage.setItem('pix_size', selectedSize)
       router.push('/pix')
@@ -163,6 +167,8 @@ export default function CheckoutPage() {
         freteLabel={delivery?.dlvPrice || 'Grátis'}
         freteVal={freteVal}
         total={total}
+        pixDiscount={pixDiscount}
+        totalPix={totalPix}
         size={selectedSize}
         fmt={fmt}
       />
@@ -192,6 +198,8 @@ export default function CheckoutPage() {
         <Step3Payment
           active={step >= 3}
           loading={loading}
+          totalPix={totalPix}
+          fmt={fmt}
           onFinalize={handleFinalize}
         />
       </div>
