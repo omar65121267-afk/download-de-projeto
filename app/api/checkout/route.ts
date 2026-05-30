@@ -1,9 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const ASSET_BASE = 'https://api.assetpay.com.br/api/v1'
-const ASSET_SECRET = process.env.ASSET_SECRET_KEY || 'sk_live_v2CAmnON0LM6dskyK3FGTNrU1x4qBrP6vR'
-const ASSET_PUBLIC = process.env.ASSET_PUBLIC_KEY || 'pk_live_v2WDE8HrFOG67vd4809cEJcVUzLvx0jZk5'
-const ASSET_AUTH = `Basic ${Buffer.from(`${ASSET_SECRET}:${ASSET_PUBLIC}`).toString('base64')}`
+const PARADISE_BASE = 'https://multi.paradisepags.com'
+const PARADISE_API_KEY = process.env.PARADISE_SECRET_KEY || 'sk_86ded9d2236dffd4db9a7a801b72d50fa1f4c0d54f7a060c0e324cd09ca0faae'
+const PRODUCT_HASH = 'prod_00aa98b7e5247d4f'
 
 const onlyDigits = (s: string) => String(s || '').replace(/\D/g, '')
 
@@ -19,9 +18,10 @@ export async function POST(request: NextRequest) {
   const phone = onlyDigits(body.phone)
   const freteVal = Number(body.frete || 0)
 
-  const SUBTOTAL_CENTS = 12790 // R$ 127,90
-  const freteCents = Math.round(freteVal * 100)
-  const totalCents = SUBTOTAL_CENTS + freteCents
+  // amount vem do frontend já com o desconto PIX de 5% aplicado
+  const amountCents = body.amount
+    ? parseInt(body.amount, 10)
+    : Math.round((12790 + Math.round(freteVal * 100)) * 0.95)
 
   if (!body.name || !body.email || cpf.length !== 11) {
     return NextResponse.json(
@@ -30,56 +30,36 @@ export async function POST(request: NextRequest) {
     )
   }
 
-  const externalRef = `ZYRON-${Date.now()}-${Math.random().toString(36).substring(2, 7).toUpperCase()}`
+  const reference = `ZYRON-${Date.now()}-${Math.random().toString(36).substring(2, 7).toUpperCase()}`
 
-  const payload = {
-    amount: totalCents,
-    paymentMethod: 'PIX',
-    externalRef,
-    postbackUrl: `${process.env.NEXT_PUBLIC_BASE_URL || 'https://v0-loja-zyron.vercel.app'}/api/webhook`,
+  const payload: Record<string, unknown> = {
+    amount: amountCents,
+    description: 'Kit 5 Calças Masculinas em Sarja Retrô Premium – Pague 3, Leve 5',
+    reference,
+    productHash: PRODUCT_HASH,
     customer: {
       name: body.name,
       email: body.email,
       phone: phone || '11999999999',
-      document: {
-        type: 'CPF',
-        number: cpf,
-      },
-    },
-    address: body.cep ? {
-      zipCode: body.cep,
-      street: body.street || '',
-      number: body.addressNumber || 'S/N',
-      complement: body.complement || '',
-      neighborhood: body.neighborhood || '',
-      city: body.city || '',
-      state: body.state || '',
-      country: 'Brasil',
-    } : undefined,
-    items: [
-      {
-        title: 'Kit 5 Calças Masculinas em Sarja Retrô Premium – Pague 3, Leve 5',
-        description: `Tamanho: ${body.size || ''}`,
-        unitPrice: totalCents,
-        quantity: 1,
-        type: 'physical',
-      },
-    ],
-    pix: {
-      expiresInDays: 1,
-    },
-    metadata: {
-      size: body.size || '',
-      origem: 'checkout',
+      document: cpf,
     },
   }
 
+  // Inclui tracking UTM se enviado pelo frontend
+  if (body.tracking) {
+    try {
+      payload.tracking = JSON.parse(body.tracking)
+    } catch {
+      // ignora se malformado
+    }
+  }
+
   try {
-    const res = await fetch(`${ASSET_BASE}/transactions`, {
+    const res = await fetch(`${PARADISE_BASE}/api/v1/transaction.php`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': ASSET_AUTH,
+        'X-API-Key': PARADISE_API_KEY,
       },
       body: JSON.stringify(payload),
     })
@@ -92,23 +72,20 @@ export async function POST(request: NextRequest) {
       data = { raw: text }
     }
 
-    if (!res.ok) {
-      console.error('[AssetPay] Erro na criação:', data)
-      return NextResponse.json(data, { status: res.status })
+    if (!res.ok || data.status === 'error') {
+      console.error('[Paradise] Erro na criação:', data)
+      return NextResponse.json(data, { status: res.ok ? 400 : res.status })
     }
 
-    const pix = data.pix as Record<string, string> | undefined
-
     return NextResponse.json({
-      transaction_id: data.id,
-      qr_code: pix?.qrcode || '',
-      qr_code_url: pix?.qrcodeUrl || '',
+      transaction_id: data.transaction_id,
+      qr_code: data.qr_code || '',
       amount: data.amount,
-      expires_at: pix?.expirationDate || '',
-      external_ref: externalRef,
+      expires_at: data.expires_at || '',
+      reference,
     })
   } catch (err) {
-    console.error('[AssetPay] Erro interno:', err)
+    console.error('[Paradise] Erro interno:', err)
     return NextResponse.json(
       { error: 'Erro interno', message: (err as Error).message },
       { status: 500 }
