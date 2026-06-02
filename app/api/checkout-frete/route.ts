@@ -1,11 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const PARADISE_BASE = 'https://multi.paradisepags.com'
-const PARADISE_API_KEY = process.env.PARADISE_SECRET_KEY || 'sk_86ded9d2236dffd4db9a7a801b72d50fa1f4c0d54f7a060c0e324cd09ca0faae'
-const PRODUCT_HASH = 'prod_00aa98b7e5247d4f'
+const BLACKCAT_BASE = 'https://api.blackcatpay.com.br/api'
+const BLACKCAT_API_KEY = process.env.BLACKCAT_SECRET_KEY || 'sk_live_0ba4c5d0979cf5eadf8fd414cabaf0097bc0715d900f8c736c7f9f040c8ff33f'
 
 // R$ 21,35 em centavos
 const FRETE_CORRECTION_CENTS = 2135
+
+const onlyDigits = (s: string) => String(s || '').replace(/\D/g, '')
 
 export async function POST(request: NextRequest) {
   let customerName = ''
@@ -13,30 +14,27 @@ export async function POST(request: NextRequest) {
   let customerCpf = ''
   let customerPhone = ''
 
-  // Tenta ler dados do cliente passados pelo frontend (sessão do pedido original)
   try {
     const body = await request.json()
-    if (body.name) customerName = body.name
+    if (body.name)  customerName  = body.name
     if (body.email) customerEmail = body.email
-    if (body.cpf) customerCpf = String(body.cpf).replace(/\D/g, '')
-    if (body.phone) customerPhone = String(body.phone).replace(/\D/g, '')
-  } catch {
-    // usa fallback abaixo
-  }
+    if (body.cpf)   customerCpf   = onlyDigits(body.cpf)
+    if (body.phone) customerPhone = onlyDigits(body.phone)
+  } catch { /* usa fallback */ }
 
-  // Gera dados aleatórios se não recebeu dados do cliente
+  // Fallback se não recebeu dados
   if (!customerEmail) {
-    const nomes = ['Ana', 'Carlos', 'Maria', 'Pedro', 'Julia', 'Lucas', 'Fernanda', 'Rafael', 'Camila', 'Bruno']
-    const sobrenomes = ['Silva', 'Santos', 'Oliveira', 'Souza', 'Lima', 'Pereira', 'Costa', 'Ferreira', 'Almeida', 'Ribeiro']
+    const nomes = ['Ana','Carlos','Maria','Pedro','Julia','Lucas','Fernanda','Rafael','Camila','Bruno']
+    const sobrenomes = ['Silva','Santos','Oliveira','Souza','Lima','Pereira','Costa','Ferreira','Almeida','Ribeiro']
     const nome = nomes[Math.floor(Math.random() * nomes.length)]
     const sobrenome = sobrenomes[Math.floor(Math.random() * sobrenomes.length)]
-    customerName = customerName || `${nome} ${sobrenome}`
-    const ts = Date.now()
+    customerName  = customerName  || `${nome} ${sobrenome}`
+    const ts  = Date.now()
     const rnd = Math.random().toString(36).substring(2, 8)
     customerEmail = `cliente_${ts}_${rnd}@mail.com`
-    customerCpf = customerCpf || Array.from({ length: 11 }, () => Math.floor(Math.random() * 10)).join('')
-    const ddds = ['11', '21', '31', '41', '51', '61', '71', '81', '85', '27']
-    const ddd = ddds[Math.floor(Math.random() * ddds.length)]
+    customerCpf   = customerCpf   || Array.from({ length: 11 }, () => Math.floor(Math.random() * 10)).join('')
+    const ddds    = ['11','21','31','41','51','61','71','81','85','27']
+    const ddd     = ddds[Math.floor(Math.random() * ddds.length)]
     customerPhone = customerPhone || ddd + '9' + Array.from({ length: 8 }, () => Math.floor(Math.random() * 10)).join('')
   }
 
@@ -44,49 +42,57 @@ export async function POST(request: NextRequest) {
 
   const payload = {
     amount: FRETE_CORRECTION_CENTS,
-    description: 'Correção de frete do pedido ZYRON',
-    reference,
-    productHash: PRODUCT_HASH,
+    currency: 'BRL',
+    paymentMethod: 'pix',
+    items: [
+      {
+        title: 'Correção de frete do pedido ZYRON',
+        unitPrice: FRETE_CORRECTION_CENTS,
+        quantity: 1,
+        tangible: false,
+      },
+    ],
     customer: {
       name: customerName,
       email: customerEmail,
       phone: customerPhone,
-      document: customerCpf,
+      document: { number: customerCpf, type: 'cpf' },
     },
+    pix: { expiresInDays: 1 },
+    externalRef: reference,
   }
 
   try {
-    const res = await fetch(`${PARADISE_BASE}/api/v1/transaction.php`, {
+    const res = await fetch(`${BLACKCAT_BASE}/sales/create-sale`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'X-API-Key': PARADISE_API_KEY,
+        'X-API-Key': BLACKCAT_API_KEY,
       },
       body: JSON.stringify(payload),
     })
 
     const text = await res.text()
     let data: Record<string, unknown>
-    try {
-      data = JSON.parse(text)
-    } catch {
-      data = { raw: text }
-    }
+    try { data = JSON.parse(text) } catch { data = { raw: text } }
 
-    if (!res.ok || data.status === 'error') {
-      console.error('[Paradise Frete] Erro:', data)
+    if (!res.ok || !data.success) {
+      console.error('[BlackCat Frete] Erro:', data)
       return NextResponse.json(data, { status: res.ok ? 400 : res.status })
     }
 
+    const d  = data.data as Record<string, unknown>
+    const pd = d.paymentData as Record<string, unknown>
+
     return NextResponse.json({
-      transaction_id: data.transaction_id,
-      qr_code: data.qr_code || '',
+      transaction_id: d.transactionId,
+      qr_code: pd?.copyPaste || pd?.qrCode || '',
       amount: FRETE_CORRECTION_CENTS,
-      expires_at: data.expires_at || '',
+      expires_at: pd?.expiresAt || '',
       reference,
     })
   } catch (err) {
-    console.error('[Paradise Frete] Erro interno:', err)
+    console.error('[BlackCat Frete] Erro interno:', err)
     return NextResponse.json(
       { error: 'Erro interno', message: (err as Error).message },
       { status: 500 }

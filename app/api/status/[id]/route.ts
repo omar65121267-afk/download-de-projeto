@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const PARADISE_BASE = 'https://multi.paradisepags.com'
-const PARADISE_API_KEY = process.env.PARADISE_SECRET_KEY || 'sk_86ded9d2236dffd4db9a7a801b72d50fa1f4c0d54f7a060c0e324cd09ca0faae'
+const BLACKCAT_BASE = 'https://api.blackcatpay.com.br/api'
+const BLACKCAT_API_KEY = process.env.BLACKCAT_SECRET_KEY || 'sk_live_0ba4c5d0979cf5eadf8fd414cabaf0097bc0715d900f8c736c7f9f040c8ff33f'
 
 export async function GET(
   _request: NextRequest,
@@ -14,32 +14,30 @@ export async function GET(
   }
 
   try {
-    const res = await fetch(
-      `${PARADISE_BASE}/api/v1/query.php?action=get_transaction&id=${encodeURIComponent(id)}`,
-      {
-        headers: { 'X-API-Key': PARADISE_API_KEY },
-        cache: 'no-store',
-      }
-    )
+    const res = await fetch(`${BLACKCAT_BASE}/sales/${encodeURIComponent(id)}`, {
+      headers: { 'X-API-Key': BLACKCAT_API_KEY },
+      cache: 'no-store',
+    })
 
     const text = await res.text()
     let data: Record<string, unknown>
-    try {
-      data = JSON.parse(text)
-    } catch {
-      data = { raw: text }
-    }
+    try { data = JSON.parse(text) } catch { data = { raw: text } }
 
     if (!res.ok) {
       return NextResponse.json(data, { status: res.status })
     }
 
-    return NextResponse.json({
-      transaction_id: id,
-      status: data.status, // Paradise já retorna: pending | approved | failed | refunded
-    })
+    const d = data.data as Record<string, unknown> | undefined
+    const rawStatus = String((d?.status ?? data.status) || '').toUpperCase()
+
+    // Normaliza: PAID → approved, PENDING → pending, resto → failed
+    const status = rawStatus === 'PAID' ? 'approved'
+      : rawStatus === 'PENDING' ? 'pending'
+      : 'failed'
+
+    return NextResponse.json({ transaction_id: id, status })
   } catch (err) {
-    console.error('[Paradise] Erro ao consultar status:', err)
+    console.error('[BlackCat] Erro ao consultar status:', err)
     return NextResponse.json(
       { error: 'Erro interno', message: (err as Error).message },
       { status: 500 }
