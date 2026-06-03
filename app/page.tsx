@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef } from 'react'
-import { useRouter } from 'next/navigation'
+
 import Image from 'next/image'
 
 const IMGS = [
@@ -41,7 +41,6 @@ const REVIEWS = [
 ]
 
 export default function LandingPage() {
-  const router = useRouter()
   const [mainImg, setMainImg] = useState(IMGS[0])
   const [activeThumb, setActiveThumb] = useState(0)
   const [selectedSize, setSelectedSize] = useState('36')
@@ -49,10 +48,12 @@ export default function LandingPage() {
 
   const overlayRef = useRef<HTMLDivElement>(null)
 
+  const CHECKOUT_URL = 'https://loja.zyron-oficial.sbs/pay/ccc718f1-71d8-422a-95c9-21b80d163b4e?payment=f8460b71-b5d9-4dfb-919c-f462e7066b6b'
+
   function buyNow(size?: string) {
     const sz = size || selectedSize
     sessionStorage.setItem('selected_size', sz)
-    router.push('/checkout')
+    window.location.href = CHECKOUT_URL
   }
 
   function selectThumb(i: number) {
