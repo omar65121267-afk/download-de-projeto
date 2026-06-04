@@ -147,7 +147,7 @@ input,select{font-family:inherit;font-size:14px;color:#111}
 .lp-drawer-nav a svg{width:20px;height:20px;stroke:#111;fill:none;stroke-width:1.6}
 .lp-drawer-foot{padding:14px 18px;border-top:1px solid #f3f4f6;color:#6b7280;font-size:12px}
 
-.lp-wrap{max-width:430px;margin:0 auto;background:#fff;padding-bottom:24px;position:relative}
+.lp-wrap{max-width:430px;margin:0 auto;background:#fff;padding-bottom:90px;position:relative}
 .lp-topbar{background:#000;color:#fff;text-align:center;padding:9px 12px;font-size:12px;font-weight:500}
 .lp-header{background:#000;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:14px 18px}
 .lp-menu{font-size:22px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;color:#fff}
@@ -365,7 +365,7 @@ input,select{font-family:inherit;font-size:14px;color:#111}
 .lp-rlist{padding:14px 18px 0}
 .lp-review{border:1px solid #e5e7eb;border-radius:14px;padding:16px;margin-bottom:12px}
 .lp-review-h{display:flex;align-items:center;gap:10px}
-.lp-av{width:38px;height:38px;border-radius:50%;background:#111;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;flex:0 0 38px;font-size:14px}
+.lp-av{width:38px;height:38px;border-radius:50%;background:#111;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;flex:0 0 38px;font-size:13px;line-height:1;overflow:hidden;text-align:center}
 .lp-rnm{flex:1}
 .lp-rnm b{display:block;font-size:14px;font-weight:700}
 .lp-rnm small{font-size:12px;color:#9ca3af}
@@ -379,12 +379,22 @@ input,select{font-family:inherit;font-size:14px;color:#111}
 .lp-foot-line svg{width:16px;height:16px;stroke:#cbd5e1;fill:none;stroke-width:1.6}
 .lp-foot a{display:block;color:#d1d5db;padding:6px 0}
 
-.lp-sticky{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:#fff;border-top:1px solid #e5e7eb;padding:8px 12px 10px;z-index:50;box-shadow:0 -2px 10px rgba(0,0,0,.08)}
-.lp-sticky-lbl{font-size:10px;color:#6b7280;font-weight:700;letter-spacing:.1em}
-.lp-sticky select{width:100%;border:1px solid #e5e7eb;border-radius:6px;padding:7px 10px;font-size:13px;background:#fff;margin-top:2px;margin-bottom:6px;font-family:inherit}
-.lp-stk-buy{background:#111;color:#fff;width:100%;padding:14px;border-radius:8px;display:flex;align-items:center;justify-content:space-between;font-weight:700;font-size:15px;letter-spacing:.04em;cursor:pointer}
-.lp-stk-buy svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:1.8;margin-right:8px}
-.lp-stk-buy .left{display:flex;align-items:center}
+/* Sticky bar */
+.lp-sticky-bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:#fff;border-top:1px solid #e5e7eb;padding:10px 14px 16px;z-index:50;box-shadow:0 -4px 16px rgba(0,0,0,.10)}
+.lp-stk-buy{background:#111;color:#fff;width:100%;padding:15px 18px;border-radius:10px;display:flex;align-items:center;justify-content:space-between;font-weight:800;font-size:15px;letter-spacing:.04em;cursor:pointer;border:none}
+.lp-stk-buy:active{opacity:.88}
+
+/* Size picker bottom sheet */
+.lp-sheet-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:60}
+.lp-size-sheet{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:#fff;border-radius:20px 20px 0 0;padding:12px 18px 32px;z-index:70}
+.lp-sheet-handle{width:40px;height:4px;background:#e5e7eb;border-radius:99px;margin:0 auto 18px}
+.lp-sheet-title{font-weight:800;font-size:16px;margin-bottom:16px;text-align:center}
+.lp-sheet-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:20px}
+.lp-sheet-confirm{background:#111;color:#fff;width:100%;padding:16px;border-radius:10px;font-weight:800;font-size:15px;cursor:pointer;border:none;margin-bottom:10px}
+.lp-sheet-cancel{background:transparent;color:#6b7280;width:100%;padding:10px;font-size:14px;cursor:pointer;border:none}
+
+/* Mercado logo */
+.lp-mp-logo{width:60px;height:60px;margin:0 auto 10px;display:flex;align-items:center;justify-content:center}
 /* ──────────────────────────────────────────────────────────────── */
 
 @custom-variant dark (&:is(.dark *));

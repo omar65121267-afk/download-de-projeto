@@ -37,7 +37,7 @@ const REVIEWS = [
   { init: 'E', name: 'Eduardo Barbosa', date: 'Fevereiro 1, 2026', text: 'Excelente custo-benefício! 5 calças de qualidade premium por esse preço é imperdível. O tecido sarja retrô é muito bonito e resistente.' },
   { init: 'L', name: 'Luiz Henrique', date: 'Janeiro 29, 2026', text: 'Super satisfeito! As calças são lindas, bem acabadas e confortáveis. Já lavei duas vezes e não desbotaram nada. Excelente produto!' },
   { init: 'F', name: 'Fátima Rocha', date: 'Janeiro 27, 2026', text: 'Comprei para presentear meu filho. Ele usou e disse que é o melhor kit de calças que já teve. Vai pedir mais um para o irmão!' },
-  { init: 'R2', name: 'Roberto Carvalho', date: 'Janeiro 25, 2026', text: 'Chegou rapidinho, em apenas 6 dias úteis. As calças são de ótima qualidade, o caimento é perfeito e as cores são exatamente como na foto.' },
+  { init: 'Ro', name: 'Roberto Carvalho', date: 'Janeiro 25, 2026', text: 'Chegou rapidinho, em apenas 6 dias úteis. As calças são de ótima qualidade, o caimento é perfeito e as cores são exatamente como na foto.' },
 ]
 
 export default function LandingPage() {
@@ -45,6 +45,8 @@ export default function LandingPage() {
   const [activeThumb, setActiveThumb] = useState(0)
   const [selectedSize, setSelectedSize] = useState('36')
   const [drawerOpen, setDrawerOpen] = useState(false)
+  const [sizePickerOpen, setSizePickerOpen] = useState(false)
+  const [pendingSize, setPendingSize] = useState('36')
 
   const overlayRef = useRef<HTMLDivElement>(null)
 
@@ -201,9 +203,9 @@ export default function LandingPage() {
         {/* 14 MP badge */}
         <div className="lp-mp">
           <div className="lp-mp-logo">
-            <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="#fff" stroke="#3b82f6" strokeWidth="2"/><path d="M14 26c2-4 6-6 10-6s8 2 10 6" stroke="#1d4ed8" strokeWidth="2.5" fill="none" strokeLinecap="round"/><path d="M16 22l4 4 4-3 4 3 4-4" stroke="#1d4ed8" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            <img src="/assets/mercado.png" alt="Mercado Líder Premium" style={{ width: 48, height: 48, objectFit: 'contain' }} />
           </div>
-          <div className="lp-mp-title">MercadoPago Líder Platinum</div>
+          <div className="lp-mp-title">Mercado Líder Premium</div>
           <div className="lp-mp-sub">Um dos melhores sites da plataforma!</div>
           <div className="lp-mp-bars"><i/><i/><i/><i/><i/></div>
           <div className="lp-mp-stats">
@@ -545,6 +547,62 @@ export default function LandingPage() {
         </footer>
 
       </div>
+
+      {/* Sticky bar fixa */}
+      <div className="lp-sticky-bar">
+        <button
+          className="lp-stk-buy"
+          onClick={() => { setPendingSize(selectedSize); setSizePickerOpen(true) }}
+        >
+          <span style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <svg viewBox="0 0 24 24" width={18} height={18} fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              <path d="M6 6h15l-1.5 9h-12L5 3H2"/>
+              <circle cx="9" cy="20" r="1.5"/>
+              <circle cx="18" cy="20" r="1.5"/>
+            </svg>
+            COMPRAR AGORA
+          </span>
+          <span>R$ 127,90</span>
+        </button>
+      </div>
+
+      {/* Size picker bottom sheet */}
+      {sizePickerOpen && (
+        <>
+          <div
+            className="lp-sheet-overlay"
+            onClick={() => setSizePickerOpen(false)}
+          />
+          <div className="lp-size-sheet">
+            <div className="lp-sheet-handle" />
+            <div className="lp-sheet-title">Selecione o tamanho</div>
+            <div className="lp-sheet-grid">
+              {SIZES.map(sz => (
+                <button
+                  key={sz}
+                  className={`lp-size${pendingSize === sz ? ' active' : ''}`}
+                  onClick={() => setPendingSize(sz)}
+                >
+                  {sz}
+                </button>
+              ))}
+            </div>
+            <button
+              className="lp-sheet-confirm"
+              onClick={() => {
+                setSelectedSize(pendingSize)
+                setSizePickerOpen(false)
+                buyNow(pendingSize)
+              }}
+            >
+              Confirmar e comprar &nbsp;·&nbsp; R$ 127,90
+            </button>
+            <button className="lp-sheet-cancel" onClick={() => setSizePickerOpen(false)}>
+              Cancelar
+            </button>
+          </div>
+        </>
+      )}
     </>
   )
 }
