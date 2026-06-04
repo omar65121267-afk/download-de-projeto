@@ -412,9 +412,9 @@ input,select{font-family:inherit;font-size:14px;color:#111}
 .lp-cta-btn svg{stroke:currentColor}
 
 /* WhatsApp flutuante */
-.lp-whatsapp-btn{position:fixed;right:16px;bottom:90px;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:55;box-shadow:0 4px 16px rgba(0,0,0,.22);transition:transform .15s}
-.lp-whatsapp-btn:active{transform:scale(.92)}
-.lp-whatsapp-btn img{width:52px;height:52px;border-radius:50%;display:block}
+.lp-whatsapp-btn{position:fixed;right:14px;bottom:94px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;z-index:55;transition:transform .15s;filter:drop-shadow(0 3px 8px rgba(0,0,0,.28))}
+.lp-whatsapp-btn:active{transform:scale(.90)}
+.lp-whatsapp-btn img{width:44px;height:44px;display:block;border-radius:0}
 /* ──────────────────────────────────────────────────────────────── */
 
 @custom-variant dark (&:is(.dark *));

@@ -568,7 +568,7 @@ export default function LandingPage() {
         className="lp-whatsapp-btn"
         aria-label="Contato via WhatsApp"
       >
-        <img src="/assets/whatsapp.png" alt="WhatsApp" width={52} height={52} />
+        <img src="/assets/whatsapp.png" alt="WhatsApp" width={44} height={44} />
       </a>
 
       {/* Sticky bar fixa */}
