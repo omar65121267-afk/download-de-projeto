@@ -395,6 +395,26 @@ input,select{font-family:inherit;font-size:14px;color:#111}
 
 /* Mercado logo */
 .lp-mp-logo{width:60px;height:60px;margin:0 auto 10px;display:flex;align-items:center;justify-content:center}
+
+/* Vitrine navy (comunidade) */
+.lp-vitrine{background:linear-gradient(175deg,#0b1430,#0f1b3d,#0e2044);padding:28px 0 22px}
+.lp-vitrine-eyebrow{text-align:center;color:#c9a961;font-size:11px;font-weight:700;letter-spacing:.24em;margin-bottom:8px}
+.lp-vitrine-title{text-align:center;color:#fff;font-size:22px;font-weight:800;line-height:1.3;padding:0 18px;margin-bottom:20px}
+.lp-vitrine-title b{color:#c9a961}
+.lp-vitrine-marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.lp-vitrine-track{display:flex;gap:10px;width:max-content;animation:lp-scroll 28s linear infinite}
+.lp-vitrine-slide{flex:0 0 130px;height:175px;border-radius:14px;overflow:hidden;background:rgba(255,255,255,.08);border:1px solid rgba(201,169,97,.18)}
+.lp-vitrine-slide img{width:100%;height:100%;object-fit:cover;opacity:.9}
+
+/* CTA botao comprar */
+.lp-cta-btn{background:#c9a961;color:#0f1b3d;width:100%;padding:16px;border-radius:10px;font-weight:800;font-size:15px;letter-spacing:.04em;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:18px}
+.lp-cta-btn:active{opacity:.88}
+.lp-cta-btn svg{stroke:currentColor}
+
+/* WhatsApp flutuante */
+.lp-whatsapp-btn{position:fixed;right:16px;bottom:90px;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:55;box-shadow:0 4px 16px rgba(0,0,0,.22);transition:transform .15s}
+.lp-whatsapp-btn:active{transform:scale(.92)}
+.lp-whatsapp-btn img{width:52px;height:52px;border-radius:50%;display:block}
 /* ──────────────────────────────────────────────────────────────── */
 
 @custom-variant dark (&:is(.dark *));

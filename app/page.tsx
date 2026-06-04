@@ -221,17 +221,18 @@ export default function LandingPage() {
           </div>
         </div>
 
-        {/* 15 community */}
-        <div className="lp-community">Junte-se à nossa comunidade de <b>50.000+</b> clientes satisfeitos</div>
-
-        {/* 16 marquee */}
-        <div className="lp-marquee">
-          <div className="lp-track">
-            {[...MARQUEE_IMGS, ...MARQUEE_IMGS].map((img, i) => (
-              <div key={i} className="lp-slide">
-                <img src={`/assets/${img}`} alt="" />
-              </div>
-            ))}
+        {/* 15 community vitrine */}
+        <div className="lp-vitrine">
+          <div className="lp-vitrine-eyebrow">COMUNIDADE ZYRON</div>
+          <div className="lp-vitrine-title">Junte-se a <b>50.000+</b><br/>clientes satisfeitos</div>
+          <div className="lp-vitrine-marquee">
+            <div className="lp-vitrine-track">
+              {[...MARQUEE_IMGS, ...MARQUEE_IMGS].map((img, i) => (
+                <div key={i} className="lp-vitrine-slide">
+                  <img src={`/assets/${img}`} alt="" />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -368,17 +369,17 @@ export default function LandingPage() {
 
         {/* 27 FAQ */}
         <div className="lp-eyebrow">TIRE SUAS DÚVIDAS</div>
-        <h2 className="lp-h2">Perguntas frequentes</h2>
+        <h2 className="lp-h2">Perguntas Frequentes</h2>
         <div className="lp-divider" />
         <div className="lp-faq" id="faq">
           {[
-            { q: 'O kit vem mesmo com 5 calças?', a: 'Sim. Você paga 1 valor e recebe 5 calças de cores diferentes (Preto, Marinho, Cáqui, Cinza e Branco), todas no tamanho que você escolher.' },
-            { q: 'Como escolho meu tamanho?', a: 'A modelagem segue padrão brasileiro (do 36 ao 54). Em caso de dúvida entre dois tamanhos, recomendamos optar pelo maior para mais conforto.' },
-            { q: 'E se não servir?', a: 'Você tem até 7 dias após o recebimento para solicitar a troca ou devolução, sem burocracia, conforme o Código de Defesa do Consumidor.' },
-            { q: 'Quanto tempo demora pra chegar?', a: 'Despachamos rapidamente do Brasil com código de rastreio. Capitais geralmente recebem em poucos dias úteis.' },
-            { q: 'Como é feito o pagamento?', a: 'Aceitamos Pix. Tudo via ambiente seguro com criptografia.' },
+            { q: 'Quais são as formas de pagamento?', a: 'Aceitamos Pix. Tudo via ambiente 100% seguro com criptografia.' },
+            { q: 'Qual o prazo de entrega?', a: 'Despachamos rapidamente do Brasil com código de rastreio. PAC de 3 a 9 dias úteis, SEDEX de 2 a 5 dias úteis.' },
+            { q: 'Como funciona a troca ou devolução?', a: 'Você tem até 7 dias após o recebimento para solicitar a troca ou devolução, sem burocracia, conforme o Código de Defesa do Consumidor.' },
+            { q: 'O produto tem garantia?', a: 'Sim. Garantia de qualidade em todas as peças. Se houver qualquer defeito de fabricação, trataremos com agilidade.' },
+            { q: 'Como escolher o tamanho correto?', a: 'A modelagem segue padrão brasileiro (do 36 ao 54). Em caso de dúvida entre dois tamanhos, recomendamos optar pelo maior para mais conforto.' },
           ].map((item, i) => (
-            <details key={i} open>
+            <details key={i}>
               <summary>{item.q}</summary>
               <p>{item.a}</p>
             </details>
@@ -388,12 +389,23 @@ export default function LandingPage() {
         {/* 28 final CTA */}
         <div className="lp-cta">
           <span className="lp-pill">GARANTA O SEU KIT</span>
-          <h3>5 calças. 1 compra. Pra sempre estiloso.</h3>
+          <h3>5 calças. 1 compra.<br/>Pra sempre estiloso.</h3>
           <p className="lp-cta-desc">Promoção Pague 3, Leve 5 enquanto durarem as últimas unidades.</p>
           <div className="lp-cta-prices">
             <span className="now">R$ 127,90</span>
             <span className="old">R$ 299,00</span>
           </div>
+          <button
+            className="lp-cta-btn"
+            onClick={() => { setPendingSize(selectedSize); setSizePickerOpen(true) }}
+          >
+            <svg viewBox="0 0 24 24" width={18} height={18} fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              <path d="M6 6h15l-1.5 9h-12L5 3H2"/>
+              <circle cx="9" cy="20" r="1.5"/>
+              <circle cx="18" cy="20" r="1.5"/>
+            </svg>
+            COMPRAR AGORA
+          </button>
           <div className="lp-cta-ext">Pagamento via Pix · Entrega garantida</div>
         </div>
 
@@ -547,6 +559,17 @@ export default function LandingPage() {
         </footer>
 
       </div>
+
+      {/* Botao WhatsApp flutuante */}
+      <a
+        href="https://wa.me/14981712107"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="lp-whatsapp-btn"
+        aria-label="Contato via WhatsApp"
+      >
+        <img src="/assets/whatsapp.png" alt="WhatsApp" width={52} height={52} />
+      </a>
 
       {/* Sticky bar fixa */}
       <div className="lp-sticky-bar">
