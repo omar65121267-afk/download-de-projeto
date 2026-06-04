@@ -47,7 +47,7 @@ export default function LandingPage() {
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [sizePickerOpen, setSizePickerOpen] = useState(false)
   const [pendingSize, setPendingSize] = useState('36')
-  const [pendingModel, setPendingModel] = useState<'skinny' | 'slim'>('slim')
+
 
   const overlayRef = useRef<HTMLDivElement>(null)
 
@@ -599,29 +599,8 @@ export default function LandingPage() {
           />
           <div className="lp-size-sheet">
             <div className="lp-sheet-handle" />
-            <div className="lp-sheet-title">Personalize seu kit</div>
-
-            {/* Selecao de modelo */}
-            <div className="lp-sheet-label">MODELAGEM</div>
-            <div className="lp-model-grid">
-              <button
-                className={`lp-model-btn${pendingModel === 'slim' ? ' active' : ''}`}
-                onClick={() => setPendingModel('slim')}
-              >
-                <span className="lp-model-name">Slim</span>
-                <span className="lp-model-desc">Ajustada ao corpo, moderna e elegante</span>
-              </button>
-              <button
-                className={`lp-model-btn${pendingModel === 'skinny' ? ' active' : ''}`}
-                onClick={() => setPendingModel('skinny')}
-              >
-                <span className="lp-model-name">Skinny</span>
-                <span className="lp-model-desc">Bem justa, destaca o contorno das pernas</span>
-              </button>
-            </div>
-
-            {/* Selecao de tamanho */}
-            <div className="lp-sheet-label" style={{ marginTop: 18 }}>TAMANHO</div>
+            <div className="lp-sheet-title">Selecione o tamanho</div>
+            <div className="lp-sheet-label">TAMANHO</div>
             <div className="lp-sheet-grid">
               {SIZES.map(sz => (
                 <button

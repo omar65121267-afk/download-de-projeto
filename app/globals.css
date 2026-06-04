@@ -394,12 +394,6 @@ input,select{font-family:inherit;font-size:14px;color:#111}
 .lp-sheet-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:6px}
 .lp-sheet-confirm{background:#111;color:#fff;width:100%;padding:16px;border-radius:10px;font-weight:800;font-size:15px;cursor:pointer;border:none;margin-bottom:10px;margin-top:20px}
 .lp-sheet-cancel{background:transparent;color:#6b7280;width:100%;padding:10px;font-size:14px;cursor:pointer;border:none}
-/* Modelo buttons */
-.lp-model-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:4px}
-.lp-model-btn{background:#f9fafb;border:2px solid #e5e7eb;border-radius:12px;padding:12px 10px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:4px;transition:border-color .15s,background .15s}
-.lp-model-btn.active{border-color:#111;background:#f0f0f0}
-.lp-model-name{font-weight:800;font-size:15px;color:#111}
-.lp-model-desc{font-size:11px;color:#6b7280;line-height:1.4}
 
 /* Mercado logo */
 .lp-mp-logo{width:60px;height:60px;margin:0 auto 10px;display:flex;align-items:center;justify-content:center}
