@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState, useRef, useCallback } from 'react'
+import { useRouter } from 'next/navigation'
 
 function getQrUrl(text: string) {
   return `https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=${encodeURIComponent(text)}`
@@ -9,6 +10,7 @@ function getQrUrl(text: string) {
 type Stage = 'confirmed' | 'upsell' | 'pix' | 'done'
 
 export default function FretePage() {
+  const router = useRouter()
   const [stage, setStage] = useState<Stage>('confirmed')
   const [pixCode, setPixCode] = useState('')
   const [txid, setTxid] = useState('')
@@ -43,6 +45,7 @@ export default function FretePage() {
           stopPolling()
           setPaid(true)
           setStage('done')
+          setTimeout(() => router.push('/obrigado'), 1500)
         }
       } catch {
         // silently retry
