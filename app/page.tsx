@@ -482,7 +482,7 @@ export default function LandingPage() {
             <svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/><path d="M12 7v5M12 15v.1"/></svg>
           </div>
           <h3>ATENÇÃO: NÃO CAIA EM GOLPES</h3>
-          <p>A ZYRON entrega mais de <b>50.000 pedidos<br/>anualmente</b>.<br/>Isso graças à confiança de nossos clientes e reputação<br/>consolidada no mercado.</p>
+          <p>A ZYRON entrega mais de <b>50.000 pedidos<br/>anualmente</b>.<br/>Isso graças à confiança de nossos clientes e reputaç��o<br/>consolidada no mercado.</p>
           <div className="lp-att-box">Nunca forneça dados pessoais ou bancários por<br/>mensagens suspeitas. Entre em contato apenas<br/>com nosso SAC oficial.</div>
         </div>
 
@@ -563,7 +563,7 @@ export default function LandingPage() {
 
       {/* Botao WhatsApp flutuante */}
       <a
-        href="https://wa.me/5514981712107"
+        href="https://wa.me/5582956345244"
         target="_blank"
         rel="noopener noreferrer"
         className="lp-whatsapp-btn"
