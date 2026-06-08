@@ -29,7 +29,7 @@ const REVIEWS = [
   { init: 'Ro', name: 'Roberto Carvalho', date: 'Janeiro 25, 2026', text: 'Chegou em apenas 5 dias úteis. As polos são de ótima qualidade, o caimento é perfeito e as cores são exatamente como na foto.', imgs: ['/polo/f1.png'] },
 ]
 
-const CHECKOUT_URL = 'https://loja.zyron-oficial.sbs/pay/ccc718f1-71d8-422a-95c9-21b80d163b4e?payment=f8460b71-b5d9-4dfb-919c-f462e7066b6b'
+const CHECKOUT_URL = 'https://loja.zyron-oficial.sbs/pay/fb39577f-b044-41a1-9cec-74751d658c10'
 
 export default function PoloPage() {
   const [mainImg, setMainImg] = useState(IMGS[0])
