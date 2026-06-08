@@ -58,7 +58,7 @@ export default function RootLayout({
         />
         {/* Utmify TikTok Pixel */}
         <Script id="utmify-tiktok" strategy="afterInteractive">{`
-          window.tikTokPixelId = "6a230d550501d9aacd113500";
+          window.tikTokPixelId = "6a26f09e22acc9e398875cf1";
           var a = document.createElement("script");
           a.setAttribute("async", "");
           a.setAttribute("defer", "");
