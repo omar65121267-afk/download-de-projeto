@@ -372,6 +372,8 @@ input,select{font-family:inherit;font-size:14px;color:#111}
 .lp-rnm small{font-size:12px;color:#9ca3af}
 .lp-rst{color:#facc15;letter-spacing:1px;font-size:14px}
 .lp-review p{margin-top:10px;font-size:13px;color:#374151;line-height:1.55}
+.lp-review-imgs{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.lp-review-img{width:80px;height:80px;object-fit:cover;border-radius:8px;border:1px solid #e5e7eb}
 
 .lp-foot{background:#0a0a0a;color:#cbd5e1;padding:26px 22px 110px;font-size:13px}
 .lp-foot h5{color:#fff;font-weight:800;font-size:13px;letter-spacing:.08em;margin:18px 0 10px}

@@ -17,16 +17,16 @@ const TESTIMONIALS = [
 ]
 
 const REVIEWS = [
-  { init: 'M', name: 'Marcos Oliveira', date: 'Fevereiro 13, 2026', text: 'Kit chegou bem embalado e no prazo. Qualidade do tecido piqué é excelente, muito superior ao esperado pelo preço. Altamente recomendo!' },
-  { init: 'R', name: 'Renata Souza', date: 'Fevereiro 11, 2026', text: 'As 5 polos são todas lindas. Tecido encorpado, costura impecável e o caimento é perfeito. Já quero comprar mais um kit!' },
+  { init: 'M', name: 'Marcos Oliveira', date: 'Fevereiro 13, 2026', text: 'Kit chegou bem embalado e no prazo. Qualidade do tecido piqué é excelente, muito superior ao esperado pelo preço. Altamente recomendo!', imgs: ['/polo/f1.png', '/polo/f2.png'] },
+  { init: 'R', name: 'Renata Souza', date: 'Fevereiro 11, 2026', text: 'As 5 polos são todas lindas. Tecido encorpado, costura impecável e o caimento é perfeito. Já quero comprar mais um kit!', imgs: ['/polo/f5.png'] },
   { init: 'G', name: 'Gustavo Nunes', date: 'Fevereiro 9, 2026', text: 'Entrega rápida e produto conforme descrito. As polos têm acabamento de primeira, bordado perfeito. Compra aprovada!' },
-  { init: 'S', name: 'Sandra Mota', date: 'Fevereiro 7, 2026', text: 'Comprei para o meu filho e ele ficou encantado. As cores são exatamente como na foto. Já vou pedir mais um kit!' },
+  { init: 'S', name: 'Sandra Mota', date: 'Fevereiro 7, 2026', text: 'Comprei para o meu filho e ele ficou encantado. As cores são exatamente como na foto. Já vou pedir mais um kit!', imgs: ['/polo/f3.png', '/polo/f4.png'] },
   { init: 'C', name: 'Carlos Ferreira', date: 'Fevereiro 5, 2026', text: 'Produto de altíssima qualidade. Tecido piqué premium e bordado impecável. Muito satisfeito com a compra.' },
-  { init: 'P', name: 'Patrícia Alves', date: 'Fevereiro 3, 2026', text: 'Presenteei meu pai e ele adorou! As polos têm caimento excelente. A entrega foi rápida e bem embalada.' },
+  { init: 'P', name: 'Patrícia Alves', date: 'Fevereiro 3, 2026', text: 'Presenteei meu pai e ele adorou! As polos têm caimento excelente. A entrega foi rápida e bem embalada.', imgs: ['/polo/f6.png', '/polo/f7.png'] },
   { init: 'E', name: 'Eduardo Barbosa', date: 'Fevereiro 1, 2026', text: 'Excelente custo-benefício! 5 polos premium por esse preço é imperdível. O tecido é muito bonito e resistente.' },
-  { init: 'L', name: 'Luiz Henrique', date: 'Janeiro 29, 2026', text: 'Super satisfeito! As polos são lindas, bem acabadas e confortáveis. Já lavei várias vezes e não desbotaram.' },
+  { init: 'L', name: 'Luiz Henrique', date: 'Janeiro 29, 2026', text: 'Super satisfeito! As polos são lindas, bem acabadas e confortáveis. Já lavei várias vezes e não desbotaram.', imgs: ['/polo/f2.png'] },
   { init: 'F', name: 'Fátima Rocha', date: 'Janeiro 27, 2026', text: 'Comprei para presentear meu filho. Ele usou e disse que é o melhor kit de polos que já teve. Vai pedir mais um!' },
-  { init: 'Ro', name: 'Roberto Carvalho', date: 'Janeiro 25, 2026', text: 'Chegou em apenas 5 dias úteis. As polos são de ótima qualidade, o caimento é perfeito e as cores são exatamente como na foto.' },
+  { init: 'Ro', name: 'Roberto Carvalho', date: 'Janeiro 25, 2026', text: 'Chegou em apenas 5 dias úteis. As polos são de ótima qualidade, o caimento é perfeito e as cores são exatamente como na foto.', imgs: ['/polo/f1.png'] },
 ]
 
 const CHECKOUT_URL = 'https://loja.zyron-oficial.sbs/pay/ccc718f1-71d8-422a-95c9-21b80d163b4e?payment=f8460b71-b5d9-4dfb-919c-f462e7066b6b'
@@ -495,6 +495,13 @@ export default function PoloPage() {
                 <div className="lp-rst">★★★★★</div>
               </div>
               <p>{r.text}</p>
+              {r.imgs && r.imgs.length > 0 && (
+                <div className="lp-review-imgs">
+                  {r.imgs.map((src, j) => (
+                    <img key={j} src={src} alt={`Foto do cliente ${r.name}`} className="lp-review-img" />
+                  ))}
+                </div>
+              )}
             </div>
           ))}
         </div>
