@@ -107,7 +107,7 @@ export default function LandingPage() {
         {/* 2 header */}
         <header className="lp-header">
           <button className="lp-menu" onClick={() => setDrawerOpen(true)} aria-label="Menu">☰</button>
-          <img src="/assets/4men-logo.png" alt="4MEN" style={{ height: 36, objectFit: 'contain' }} />
+          <img src="/assets/4men-logo.png" alt="4MEN" style={{ height: 54, objectFit: 'contain' }} />
           <span style={{ width: 28 }} />
         </header>
 
@@ -159,24 +159,8 @@ export default function LandingPage() {
           <span className="lp-price-now">R$ 127,90</span>
         </div>
         <div className="lp-eco">Economia de R$ 171,10</div>
-        {/* 10 sizes */}
-        <div className="lp-sizes">
-          <div className="lp-sizes-label">Tamanho:</div>
-          <div className="lp-sizes-grid">
-            {SIZES.map(sz => (
-              <button
-                key={sz}
-                className={`lp-size${selectedSize === sz ? ' active' : ''}`}
-                onClick={() => setSelectedSize(sz)}
-              >
-                {sz}
-              </button>
-            ))}
-          </div>
-        </div>
-
         {/* 11 buy btn */}
-        <button className="lp-buy" onClick={() => buyNow(selectedSize)}>
+        <button className="lp-buy" onClick={() => { setPendingSize(selectedSize); setSizePickerOpen(true) }}>
           Comprar agora
         </button>
 
@@ -253,9 +237,12 @@ export default function LandingPage() {
         </div>
 
         {/* 19 alert */}
-        <div className="lp-alert">
-          <div className="lp-alert-ic">⚠</div>
-          <div>Restam poucas unidades do lote promocional</div>
+        <div className="lp-alert lp-alert-urgent">
+          <div className="lp-alert-ic">🔥</div>
+          <div>
+            <b>Restam poucas unidades do lote promocional</b>
+            <span className="lp-alert-sub">Garanta o seu antes que acabe!</span>
+          </div>
         </div>
 
         {/* 20 features */}
