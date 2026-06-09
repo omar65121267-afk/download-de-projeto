@@ -77,7 +77,7 @@ export default function LandingPage() {
 
       <aside className={`lp-drawer${drawerOpen ? ' on' : ''}`}>
         <div className="lp-drawer-h">
-          <div className="logo">ZYRON</div>
+          <img src="/assets/4men-logo.png" alt="4MEN" style={{ height: 32, objectFit: 'contain' }} />
           <button className="lp-drawer-close" onClick={() => setDrawerOpen(false)}>×</button>
         </div>
         <nav className="lp-drawer-nav">
@@ -94,7 +94,7 @@ export default function LandingPage() {
             Contato
           </a>
         </nav>
-        <div className="lp-drawer-foot">© ZYRON · help@zyron.co</div>
+        <div className="lp-drawer-foot">© 4MEN · help@4men.co</div>
       </aside>
 
       <div className="lp-wrap">
@@ -107,7 +107,7 @@ export default function LandingPage() {
         {/* 2 header */}
         <header className="lp-header">
           <button className="lp-menu" onClick={() => setDrawerOpen(true)} aria-label="Menu">☰</button>
-          <div className="logo">ZYRON</div>
+          <img src="/assets/4men-logo.png" alt="4MEN" style={{ height: 36, objectFit: 'contain' }} />
           <span style={{ width: 28 }} />
         </header>
 
@@ -224,7 +224,7 @@ export default function LandingPage() {
 
         {/* 15 community vitrine */}
         <div className="lp-vitrine">
-          <div className="lp-vitrine-eyebrow">COMUNIDADE ZYRON</div>
+          <div className="lp-vitrine-eyebrow">COMUNIDADE 4MEN</div>
           <div className="lp-vitrine-title">Junte-se a <b>50.000+</b><br/>clientes satisfeitos</div>
           <div className="lp-vitrine-marquee">
             <div className="lp-vitrine-track">
@@ -301,14 +301,14 @@ export default function LandingPage() {
 
         {/* 22 compare */}
         <div className="lp-compare">
-          <div className="lp-eyebrow">POR QUE ESCOLHER A ZYRON</div>
+          <div className="lp-eyebrow">POR QUE ESCOLHER A 4MEN</div>
           <h3>Compare antes de decidir</h3>
           <div className="lp-divider" />
           <table>
             <thead>
               <tr>
                 <th>Critério</th>
-                <th className="gold">Kit Zyron</th>
+                <th className="gold">Kit 4MEN</th>
                 <th className="red">Loja Comum</th>
               </tr>
             </thead>
@@ -447,15 +447,8 @@ export default function LandingPage() {
           </div>
         </div>
 
-        {/* 33 bag */}
-        <div className="lp-bag">
-          <div className="lp-bag-img">
-            <img src="/assets/sacolas.webp" alt="Sacola ZYRON" />
-          </div>
-        </div>
-
         {/* 34 why zyron */}
-        <div className="lp-why-h">POR QUE ESCOLHER A<br/><b>ZYRON?</b></div>
+        <div className="lp-why-h">POR QUE ESCOLHER A<br/><b>4MEN?</b></div>
         <div className="lp-whycards">
           {[
             { icon: <svg viewBox="0 0 24 24"><path d="M3 7h13v10H3z"/><path d="M16 10h4l1 2v5h-5z"/><circle cx="7" cy="18" r="1.5"/><circle cx="18" cy="18" r="1.5"/></svg>, title: 'FRETE GRÁTIS', desc: 'Envio imediato para todo o Brasil' },
@@ -481,8 +474,8 @@ export default function LandingPage() {
           <div className="lp-att-ic">
             <svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/><path d="M12 7v5M12 15v.1"/></svg>
           </div>
-          <h3>ATENÇÃO: NÃO CAIA EM GOLPES</h3>
-          <p>A ZYRON entrega mais de <b>50.000 pedidos<br/>anualmente</b>.<br/>Isso graças à confiança de nossos clientes e reputaç��o<br/>consolidada no mercado.</p>
+          <h3>ATEN&Ccedil;&Atilde;O: N&Atilde;O CAIA EM GOLPES</h3>
+          <p>A 4MEN entrega mais de <b>50.000 pedidos<br/>anualmente</b>.<br/>Isso graças à confiança de nossos clientes e reputação<br/>consolidada no mercado.</p>
           <div className="lp-att-box">Nunca forneça dados pessoais ou bancários por<br/>mensagens suspeitas. Entre em contato apenas<br/>com nosso SAC oficial.</div>
         </div>
 
@@ -491,10 +484,15 @@ export default function LandingPage() {
           <img src="/assets/reclameaq.webp" alt="ReclameAQUI 9.1" />
         </div>
 
+        {/* 37b Premio RA 2025 */}
+        <div style={{ display: 'flex', justifyContent: 'center', padding: '16px 0' }}>
+          <img src="/assets/ra2025.png" alt="Empresa Indicada Prêmio RA 2025" style={{ width: 160, height: 'auto' }} />
+        </div>
+
         {/* 39 big stats */}
         {[
           { num: '100 Mil', lab: 'Pedidos Enviados', txt: 'Enviamos para você onde você estiver com qualidade e agilidade comprovada!' },
-          { num: '5 anos', lab: 'De experiência', txt: 'Há cinco anos, a ZYRON seleciona a dedo os melhores produtos e entrega excelência em cada compra.' },
+          { num: '5 anos', lab: 'De experiência', txt: 'Há cinco anos, a 4MEN seleciona a dedo os melhores produtos e entrega excelência em cada compra.' },
           { num: '80 Mil', lab: 'Clientes Satisfeitos', txt: '20% dos clientes voltam para novas compras, comprovando a confiança e a satisfação em cada pedido.' },
         ].map((s, i) => (
           <div key={i} className="lp-bigstat">
@@ -547,7 +545,7 @@ export default function LandingPage() {
           </div>
           <div className="lp-foot-line">
             <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 7 9-7"/></svg>
-            <span>help@zyron.co</span>
+            <span>help@4men.co</span>
           </div>
           <h5>POLÍTICAS E TERMOS</h5>
           {['Aviso Legal','Formas de Pagamento','Política de Devolução','Política de Privacidade e Cookies','Política de Frete','Política de Privacidade','Política de Troca e Devolução','Termos de Serviço'].map(l => (
