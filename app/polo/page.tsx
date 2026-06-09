@@ -143,9 +143,9 @@ export default function PoloPage() {
         {/* price */}
         <div className="lp-price">
           <span className="lp-price-old">R$ 299,00</span>
-          <span className="lp-price-now">R$ 127,90</span>
+          <span className="lp-price-now">R$ 99,87</span>
         </div>
-        <div className="lp-eco">Economia de R$ 171,10</div>
+        <div className="lp-eco">Economia de R$ 199,13</div>
 
         {/* sizes */}
         <div className="lp-sizes">
@@ -235,8 +235,8 @@ export default function PoloPage() {
           <p>5 polos masculinas clássicas premium pelo preço de 3. Um kit pensado para quem quer um visual elegante, versátil e atemporal.</p>
           <div className="lp-boxes">
             <div className="b"><div className="v">5</div><div className="l">POLOS</div></div>
-            <div className="b"><div className="v">1</div><div className="l">PREÇO</div></div>
-            <div className="b"><div className="v">R$ 25</div><div className="l">POR PEÇA</div></div>
+            <div className="b"><div className="v">1</div><div className="l">PRE��O</div></div>
+            <div className="b"><div className="v">R$ 20</div><div className="l">POR PEÇA</div></div>
           </div>
         </div>
 
@@ -303,7 +303,7 @@ export default function PoloPage() {
             <tbody>
               <tr><td>5 polos por uma compra</td><td>Sim</td><td>Não</td></tr>
               <tr><td>Tecido Piqué Premium</td><td>Sim</td><td>Tecido básico</td></tr>
-              <tr><td>Preço por peça</td><td>R$ 25,58</td><td>R$ 89+</td></tr>
+              <tr><td>Preço por peça</td><td>R$ 19,97</td><td>R$ 89+</td></tr>
               <tr><td>Troca em 7 dias garantida</td><td>Sim</td><td>Limitada</td></tr>
               <tr><td>Envio do Brasil</td><td>Sim</td><td>Importado</td></tr>
             </tbody>
@@ -379,7 +379,7 @@ export default function PoloPage() {
           <h3>5 polos. 1 compra.<br/>Pra sempre estiloso.</h3>
           <p className="lp-cta-desc">Promoção Pague 3, Leve 5 enquanto durarem as últimas unidades.</p>
           <div className="lp-cta-prices">
-            <span className="now">R$ 127,90</span>
+            <span className="now">R$ 99,87</span>
             <span className="old">R$ 299,00</span>
           </div>
           <button
@@ -554,7 +554,7 @@ export default function PoloPage() {
             </svg>
             COMPRAR AGORA
           </span>
-          <span>R$ 127,90</span>
+          <span>R$ 99,87</span>
         </button>
       </div>
 
@@ -588,7 +588,7 @@ export default function PoloPage() {
                 buyNow(pendingSize)
               }}
             >
-              Confirmar e comprar &nbsp;·&nbsp; R$ 127,90
+              Confirmar e comprar &nbsp;·&nbsp; R$ 99,87
             </button>
             <button className="lp-sheet-cancel" onClick={() => setSizePickerOpen(false)}>
               Cancelar
