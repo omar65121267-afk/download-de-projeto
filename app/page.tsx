@@ -24,10 +24,11 @@ const TESTIMONIALS = [
   { pic: 'ft2.jpg', name: 'Rafael S.', stars: 5, text: 'Comprei pra renovar o guarda-roupa e foi a melhor decisão. Cinco cores, combina com tudo.' },
   { pic: 'ft3.jpg', name: 'Leandro V.', stars: 5, text: 'Chegou rápido e bem embalado. Já estou de olho em comprar mais um kit pra dar de presente.' },
   { pic: 'ft4.jpg', name: 'Bruno A.', stars: 5, text: 'Servem perfeitamente. O acabamento é de loja cara. Recomendo pra quem cansou de pagar caro por uma só.' },
-  { pic: 'ft1.jpg', name: 'Diego P.', stars: 5, text: 'Calças confortáveis, qualidade excelente. Já comprei e indiquei pra vários amigos.' },
-  { pic: 'ft2.jpg', name: 'Thiago N.', stars: 5, text: 'Material de primeira, caimento perfeito. Uso no trabalho e no dia a dia sem problema nenhum.' },
-  { pic: 'ft3.jpg', name: 'Felipe R.', stars: 5, text: 'Kit incrível! Cinco calças pelo preço de três é surreal. Comprei e já vou pedir outro pra presentear.' },
-  { pic: 'ft4.jpg', name: 'Matheus L.', stars: 5, text: 'Esperava algo mediano e recebi algo premium. Superou todas as expectativas. Vale cada centavo.' },
+  { pic: 'dep1.jpg', name: 'Diego P.', stars: 5, text: 'Calças confortáveis, qualidade excelente. Já comprei e indiquei pra vários amigos.' },
+  { pic: 'dep2.jpg', name: 'Thiago N.', stars: 5, text: 'Material de primeira, caimento perfeito. Uso no trabalho e no dia a dia sem problema nenhum.' },
+  { pic: 'dep3.jpg', name: 'Felipe R.', stars: 5, text: 'Kit incrível! Cinco calças pelo preço de três é surreal. Comprei e já vou pedir outro pra presentear.' },
+  { pic: 'dep4.jpg', name: 'Matheus L.', stars: 5, text: 'Esperava algo mediano e recebi algo premium. Superou todas as expectativas. Vale cada centavo.' },
+  { pic: 'dep5.jpg', name: 'André T.', stars: 5, text: 'Entrega super rápida e embalagem impecável. Qualidade muito acima do esperado pelo valor do kit.' },
 ]
 
 const REVIEWS = [
