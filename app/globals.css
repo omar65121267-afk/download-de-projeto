@@ -289,10 +289,11 @@ input,select{font-family:inherit;font-size:14px;color:#111}
 
 .lp-testi{padding:6px 14px}
 .lp-testi-card{border:1px solid #eef0f4;border-radius:14px;padding:16px;margin-bottom:10px;background:#fff;position:relative}
-.lp-testi-pic{width:100%;aspect-ratio:1/.7;border-radius:10px;overflow:hidden;margin-bottom:12px;background:#eee}
-.lp-testi-pic img{width:100%;height:100%;object-fit:cover}
+.lp-testi-pic{width:100%;aspect-ratio:3/4;border-radius:10px;overflow:hidden;margin-bottom:8px;background:#eee}
+.lp-testi-pic img{width:100%;height:100%;object-fit:cover;object-position:top}
+.lp-testi-name{font-size:13px;font-weight:700;color:#111;margin-bottom:4px}
 .lp-testi-quote{position:absolute;top:-12px;left:14px;width:26px;height:26px;border-radius:50%;background:#c9a961;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-family:var(--font-cinzel,'Cinzel',serif);font-size:16px}
-.lp-testi-card .lp-stars{margin:6px 0 8px;color:#facc15;letter-spacing:1px}
+.lp-testi-card .lp-stars{margin:4px 0 8px;color:#facc15;letter-spacing:1px}
 .lp-testi-card p{font-size:13px;line-height:1.55;color:#374151}
 
 .lp-faq{padding:6px 14px;border:1px solid #eef0f4;border-radius:14px;margin:0 14px}

@@ -20,11 +20,14 @@ const SIZES = ['36','38','40','42','44','46','48','50','52','54']
 const MARQUEE_IMGS = ['calca1.webp','calca2.webp','calca3.webp','calca4.webp','calca5.webp','calca6.webp']
 
 const TESTIMONIALS = [
-  { pic: 'dep1.jpg', stars: 5, text: 'Sinceramente surpreendido. Tecido firme, caimento ótimo e o preço por peça é absurdo de bom.' },
-  { pic: 'dep2.jpg', stars: 5, text: 'Comprei pra renovar o guarda-roupa e foi a melhor decisão. Cinco cores, combina com tudo.' },
-  { pic: 'dep3.jpg', stars: 5, text: 'Chegou rápido e bem embalado. Já estou de olho em comprar mais um kit pra dar de presente.' },
-  { pic: 'dep4.jpg', stars: 5, text: 'Servem perfeitamente. O acabamento é de loja cara. Recomendo pra quem cansou de pagar caro por uma só.' },
-  { pic: 'dep5.jpg', stars: 5, text: 'Calças confortáveis, qualidade excelente. Já comprei e indiquei pra vários amigos.' },
+  { pic: 'ft1.jpg', name: 'Carlos M.', stars: 5, text: 'Sinceramente surpreendido. Tecido firme, caimento ótimo e o preço por peça é absurdo de bom.' },
+  { pic: 'ft2.jpg', name: 'Rafael S.', stars: 5, text: 'Comprei pra renovar o guarda-roupa e foi a melhor decisão. Cinco cores, combina com tudo.' },
+  { pic: 'ft3.jpg', name: 'Leandro V.', stars: 5, text: 'Chegou rápido e bem embalado. Já estou de olho em comprar mais um kit pra dar de presente.' },
+  { pic: 'ft4.jpg', name: 'Bruno A.', stars: 5, text: 'Servem perfeitamente. O acabamento é de loja cara. Recomendo pra quem cansou de pagar caro por uma só.' },
+  { pic: 'ft1.jpg', name: 'Diego P.', stars: 5, text: 'Calças confortáveis, qualidade excelente. Já comprei e indiquei pra vários amigos.' },
+  { pic: 'ft2.jpg', name: 'Thiago N.', stars: 5, text: 'Material de primeira, caimento perfeito. Uso no trabalho e no dia a dia sem problema nenhum.' },
+  { pic: 'ft3.jpg', name: 'Felipe R.', stars: 5, text: 'Kit incrível! Cinco calças pelo preço de três é surreal. Comprei e já vou pedir outro pra presentear.' },
+  { pic: 'ft4.jpg', name: 'Matheus L.', stars: 5, text: 'Esperava algo mediano e recebi algo premium. Superou todas as expectativas. Vale cada centavo.' },
 ]
 
 const REVIEWS = [
@@ -107,7 +110,7 @@ export default function LandingPage() {
         {/* 2 header */}
         <header className="lp-header">
           <button className="lp-menu" onClick={() => setDrawerOpen(true)} aria-label="Menu">☰</button>
-          <img src="/assets/4men-logo.png" alt="4MEN" style={{ height: 54, objectFit: 'contain' }} />
+          <img src="/assets/4men-logo.png" alt="4MEN" style={{ height: 70, objectFit: 'contain' }} />
           <span style={{ width: 28 }} />
         </header>
 
@@ -346,8 +349,9 @@ export default function LandingPage() {
           {TESTIMONIALS.map((t, i) => (
             <div key={i} className="lp-testi-card">
               <div className="lp-testi-pic">
-                <img src={`/assets/${t.pic}`} alt={`Depoimento ${i + 1}`} />
+                <img src={`/assets/${t.pic}`} alt={`Depoimento de ${t.name}`} />
               </div>
+              <div className="lp-testi-name">{t.name}</div>
               <div className="lp-testi-quote">"</div>
               <div className="lp-stars">{'★'.repeat(t.stars)}</div>
               <p>{t.text}</p>
@@ -464,11 +468,6 @@ export default function LandingPage() {
           <h3>ATEN&Ccedil;&Atilde;O: N&Atilde;O CAIA EM GOLPES</h3>
           <p>A 4MEN entrega mais de <b>50.000 pedidos<br/>anualmente</b>.<br/>Isso graças à confiança de nossos clientes e reputação<br/>consolidada no mercado.</p>
           <div className="lp-att-box">Nunca forneça dados pessoais ou bancários por<br/>mensagens suspeitas. Entre em contato apenas<br/>com nosso SAC oficial.</div>
-        </div>
-
-        {/* 37 reclame aqui */}
-        <div className="lp-reclame-img">
-          <img src="/assets/reclameaq.webp" alt="ReclameAQUI 9.1" />
         </div>
 
         {/* 37b Premio RA 2025 */}
