@@ -546,3 +546,27 @@ input,select{font-family:inherit;font-size:14px;color:#111}
     @apply bg-background text-foreground;
   }
 }
+
+/* ── Kit Selector ─────────────────────────────── */
+.ks-wrap{background:#F5F4F0;border-radius:14px;margin:16px 14px;padding:18px 16px;display:flex;flex-direction:column;gap:14px}
+.ks-header{display:flex;flex-direction:column;gap:2px}
+.ks-label{font-size:15px;font-weight:600;color:#111}
+.ks-sub{font-size:12px;color:#888;font-weight:400}
+.ks-card{background:#fff;border:1px solid #e8e7e2;border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.ks-card-title{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#111}
+.ks-num{width:22px;height:22px;border-radius:50%;background:#111;color:#fff;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;flex:0 0 22px}
+.ks-selected-color{margin-left:auto;font-size:12px;font-weight:600}
+.ks-row-label{font-size:11px;font-weight:600;color:#999;letter-spacing:.04em;text-transform:uppercase}
+.ks-colors{display:flex;gap:10px;align-items:center}
+.ks-dot-btn{width:32px;height:32px;border-radius:50%;padding:0;background:none;border:2.5px solid transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .15s}
+.ks-dot-btn.ks-dot-active{border-color:#111}
+.ks-dot{width:22px;height:22px;border-radius:50%;display:block;flex:0 0 22px}
+.ks-sizes{display:flex;gap:8px;flex-wrap:wrap}
+.ks-sz{min-width:44px;height:36px;border-radius:8px;border:1px solid #d4d2cc;background:#fff;font-size:13px;font-weight:600;color:#333;cursor:pointer;transition:background .15s,color .15s,border-color .15s;padding:0 10px}
+.ks-sz.ks-sz-active{background:#111;color:#fff;border-color:#111}
+.ks-summary{background:#fff;border:1px solid #e8e7e2;border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.ks-summary-title{font-size:12px;font-weight:700;color:#111;text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.ks-summary-row{display:flex;justify-content:space-between;font-size:13px;color:#444;font-weight:400}
+.ks-summary-row span:last-child{font-weight:600;color:#111}
+.ks-buy-btn{background:#111;color:#fff;border:none;border-radius:10px;padding:16px;font-size:15px;font-weight:700;cursor:pointer;letter-spacing:.01em;transition:opacity .15s}
+.ks-buy-btn:active{opacity:.85}

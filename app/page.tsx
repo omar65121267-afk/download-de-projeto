@@ -3,6 +3,7 @@
 import { useState, useRef } from 'react'
 
 import Image from 'next/image'
+import { KitSelector } from '@/components/kit-selector'
 
 const IMGS = [
   'fotoproduto1.webp',
@@ -163,10 +164,8 @@ export default function LandingPage() {
           <span className="lp-price-now">R$ 127,90</span>
         </div>
         <div className="lp-eco">Economia de R$ 171,10</div>
-        {/* 11 buy btn */}
-        <button className="lp-buy" onClick={() => { setPendingSize(selectedSize); setSizePickerOpen(true) }}>
-          Comprar agora
-        </button>
+        {/* 11 kit selector */}
+        <KitSelector onBuy={(_kit) => { window.location.href = CHECKOUT_URL }} />
 
         {/* 12 pay */}
         <div className="lp-pay-static">
