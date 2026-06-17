@@ -188,23 +188,7 @@ export default function LandingPage() {
           </div>
         </div>
 
-        {/* 14 MP badge */}
-        <div className="lp-mp">
-          <div className="lp-mp-title">Mercado Líder Premium</div>
-          <div className="lp-mp-sub">Um dos melhores sites da plataforma!</div>
-          <div className="lp-mp-bars"><i/><i/><i/><i/><i/></div>
-          <div className="lp-mp-stats">
-            <div className="col"><div className="big">36907</div><small>Vendas nos<br/>últimos 60<br/>dias</small></div>
-            <div className="col">
-              <svg viewBox="0 0 24 24"><rect x="3" y="5" width="14" height="11" rx="2"/><circle cx="18" cy="12" r="4" fill="#16a34a" stroke="#16a34a"/><path d="M16.5 12l1 1 2-2" stroke="#fff" strokeWidth="2"/></svg>
-              <small>Presta um<br/>bom<br/>atendimento</small>
-            </div>
-            <div className="col">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2"/><circle cx="18" cy="7" r="3" fill="#16a34a" stroke="#16a34a"/><path d="M16.6 7l1 1 1.8-2" stroke="#fff" strokeWidth="1.6"/></svg>
-              <small>Entrega os<br/>produtos<br/>dentro<br/>do prazo</small>
-            </div>
-          </div>
-        </div>
+
 
         {/* 15 community vitrine */}
         <div className="lp-vitrine">
