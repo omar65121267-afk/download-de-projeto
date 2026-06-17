@@ -190,9 +190,6 @@ export default function LandingPage() {
 
         {/* 14 MP badge */}
         <div className="lp-mp">
-          <div className="lp-mp-logo">
-            <img src="/assets/mercado.png" alt="Mercado Líder Premium" style={{ width: 48, height: 48, objectFit: 'contain' }} />
-          </div>
           <div className="lp-mp-title">Mercado Líder Premium</div>
           <div className="lp-mp-sub">Um dos melhores sites da plataforma!</div>
           <div className="lp-mp-bars"><i/><i/><i/><i/><i/></div>
