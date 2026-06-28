@@ -15,6 +15,7 @@ const IMGS = [
   'fotoproduto6.webp',
   'fotoproduto7.webp',
   'fotoproduto8.webp',
+  'fotoproduto9.jpg',
 ]
 
 const SIZES = ['36','38','40','42','44','46','48','50','52','54']
@@ -31,6 +32,7 @@ const TESTIMONIALS = [
   { pic: 'dep3.jpg', name: 'Felipe R.', stars: 5, text: 'Kit incrível! Cinco calças pelo preço de três é surreal. Comprei e já vou pedir outro pra presentear.' },
   { pic: 'dep4.jpg', name: 'Matheus L.', stars: 5, text: 'Esperava algo mediano e recebi algo premium. Superou todas as expectativas. Vale cada centavo.' },
   { pic: 'dep5.jpg', name: 'André T.', stars: 5, text: 'Entrega super rápida e embalagem impecável. Qualidade muito acima do esperado pelo valor do kit.' },
+  { pic: 'ft5.jpg', name: 'Vinicius C.', stars: 5, text: 'Caimento perfeito, usei com a polo e ficou um visual impecável. As calças são de ótima qualidade.' },
 ]
 
 const REVIEWS = [
@@ -160,7 +162,7 @@ export default function LandingPage() {
         {/* 8 stars */}
         <div className="lp-stars-row">
           <span className="lp-stars">★★★★★</span>
-          <span>(373 avaliações)</span>
+          <span className="lp-stars-count">1.595 avaliações</span>
         </div>
 
         {/* 9 price */}
@@ -170,7 +172,7 @@ export default function LandingPage() {
         </div>
         <div className="lp-eco">Economia de R$ 160,00</div>
         <div className="lp-pix-row">
-          <svg viewBox="0 0 512 512" width="20" height="20" aria-hidden="true"><path d="M112.57 391.19a63.48 63.48 0 0 0 45.16 18.67h169.82a63.48 63.48 0 0 0 45.16-18.67l94.6-94.6a63.49 63.49 0 0 0 0-81.18l-94.6-94.6a63.48 63.48 0 0 0-45.16-18.67H157.73a63.48 63.48 0 0 0-45.16 18.67l-94.6 94.6a63.49 63.49 0 0 0 0 81.18z" fill="#32BCAD"/><path d="M306.08 338.86l-44.27-44.27a7.26 7.26 0 0 0-5.13-2.12 7.26 7.26 0 0 0-5.13 2.12l-44.45 44.45a35.61 35.61 0 0 1-25.34 10.49h-8.9l56.12 56.12a36.28 36.28 0 0 0 51.32 0l56.3-56.3h-5.18a35.61 35.61 0 0 1-25.34-10.49zm-124.98-165.72a35.61 35.61 0 0 1 25.34 10.49l44.45 44.45a7.25 7.25 0 0 0 10.26 0l44.09-44.09a35.61 35.61 0 0 1 25.34-10.49h5.18l-56.3-56.3a36.28 36.28 0 0 0-51.32 0l-56.12 56.12h8.72z" fill="#fff"/><path d="M438.24 217.01l-31.97-31.97h-11.09a28.13 28.13 0 0 0-20.01 8.29l-44.09 44.09a14.75 14.75 0 0 1-20.9 0l-44.27-44.27a28.13 28.13 0 0 0-20.01-8.29h-14.25l-44.45 44.45a28.13 28.13 0 0 0-8.29 20.01v1.36a28.13 28.13 0 0 0 8.29 20.01l44.45 44.45h14.25a28.13 28.13 0 0 0 20.01-8.29l44.27-44.27a14.75 14.75 0 0 1 20.9 0l44.09 44.09a28.13 28.13 0 0 0 20.01 8.29h11.09l31.97-31.97a36.28 36.28 0 0 0 0-65.98z" fill="#fff"/></svg>
+          <img src="/assets/pix-icon.png" alt="Pix" width={20} height={20} style={{ objectFit: 'contain' }} />
           <span className="lp-pix-price">R$ 132,05</span>
           <span className="lp-pix-badge">5% OFF no PIX</span>
         </div>
@@ -295,29 +297,6 @@ export default function LandingPage() {
               <p>{item.a}</p>
             </details>
           ))}
-        </div>
-
-        {/* 28 final CTA */}
-        <div className="lp-cta">
-          <span className="lp-pill">GARANTA O SEU KIT</span>
-          <h3>5 calças. 1 compra.<br/>Pra sempre estiloso.</h3>
-          <p className="lp-cta-desc">Promoção Pague 3, Leve 5 enquanto durarem as últimas unidades.</p>
-          <div className="lp-cta-prices">
-            <span className="now">R$ 139,00</span>
-            <span className="old">R$ 299,00</span>
-          </div>
-          <button
-            className="lp-cta-btn"
-            onClick={() => { setPendingSize(selectedSize); setSizePickerOpen(true) }}
-          >
-            <svg viewBox="0 0 24 24" width={18} height={18} fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-              <path d="M6 6h15l-1.5 9h-12L5 3H2"/>
-              <circle cx="9" cy="20" r="1.5"/>
-              <circle cx="18" cy="20" r="1.5"/>
-            </svg>
-            COMPRAR AGORA
-          </button>
-          <div className="lp-cta-ext">Pagamento via Pix · Entrega garantida</div>
         </div>
 
         {/* 29-31 specs */}
