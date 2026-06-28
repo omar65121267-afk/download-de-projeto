@@ -3,7 +3,6 @@
 import { useState, useRef } from 'react'
 
 import Image from 'next/image'
-import { KitSelector } from '@/components/kit-selector'
 import { CorreiosBanner } from '@/components/correios-banner'
 
 const IMGS = [
@@ -37,16 +36,16 @@ const TESTIMONIALS = [
 ]
 
 const REVIEWS = [
-  { pic: 'dep1.jpg', name: 'Marcos Oliveira', date: 'Fevereiro 13, 2026', text: 'Produto chegou bem embalado e no prazo. A qualidade da sarja é excelente, muito melhor do que eu esperava pelo preço. Vale muito a pena o kit!' },
-  { pic: 'dep2.jpg', name: 'Raimundo Souza', date: 'Fevereiro 11, 2026', text: 'Comprei o kit e fiquei impressionado. As 5 calças são todas de ótima qualidade, o tecido é encorpado e bem acabado. Recomendo demais!' },
-  { pic: 'dep3.jpg', name: 'Gilberto Nunes', date: 'Fevereiro 9, 2026', text: 'Entrega rápida, produto conforme descrito. As calças têm um caimento ótimo e o material é de primeira. Compra aprovada!' },
-  { pic: 'dep4.jpg', name: 'Sandra Mota', date: 'Fevereiro 7, 2026', text: 'Comprei para o meu marido e ele ficou encantado com a qualidade. As cores são exatamente como na foto. Já vou pedir mais um kit!' },
-  { pic: 'dep5.jpg', name: 'Claudio Ferreira', date: 'Fevereiro 5, 2026', text: 'Produto de altíssima qualidade. As costuras são impecáveis e o tecido tem uma maciez incrível. Muito satisfeito com a compra.' },
-  { pic: 'ft1.jpg', name: 'Patrícia Alves', date: 'Fevereiro 3, 2026', text: 'Presenteei meu pai e ele adorou! As calças têm um caimento excelente e o material é muito bonito. A entrega foi rápida e bem embalada.' },
-  { pic: 'ft2.jpg', name: 'Eduardo Barbosa', date: 'Fevereiro 1, 2026', text: 'Excelente custo-benefício! 5 calças de qualidade premium por esse preço é imperdível. O tecido sarja retrô é muito bonito e resistente.' },
-  { pic: 'ft3.jpg', name: 'Luiz Henrique', date: 'Janeiro 29, 2026', text: 'Super satisfeito! As calças são lindas, bem acabadas e confortáveis. Já lavei duas vezes e não desbotaram nada. Excelente produto!' },
-  { pic: 'ft4.jpg', name: 'Fátima Rocha', date: 'Janeiro 27, 2026', text: 'Comprei para presentear meu filho. Ele usou e disse que é o melhor kit de calças que já teve. Vai pedir mais um para o irmão!' },
-  { pic: 'ft5.jpg', name: 'Roberto Carvalho', date: 'Janeiro 25, 2026', text: 'Chegou rapidinho, em apenas 6 dias úteis. As calças são de ótima qualidade, o caimento é perfeito e as cores são exatamente como na foto.' },
+  { pic: 'av-male1.png', name: 'Marcos Oliveira', date: 'Fevereiro 13, 2026', text: 'Produto chegou bem embalado e no prazo. A qualidade da sarja é excelente, muito melhor do que eu esperava pelo preço. Vale muito a pena o kit!' },
+  { pic: 'av-male2.png', name: 'Raimundo Souza', date: 'Fevereiro 11, 2026', text: 'Comprei o kit e fiquei impressionado. As 5 calças são todas de ótima qualidade, o tecido é encorpado e bem acabado. Recomendo demais!' },
+  { pic: 'av-male3.png', name: 'Gilberto Nunes', date: 'Fevereiro 9, 2026', text: 'Entrega rápida, produto conforme descrito. As calças têm um caimento ótimo e o material é de primeira. Compra aprovada!' },
+  { pic: 'av-female1.png', name: 'Sandra Mota', date: 'Fevereiro 7, 2026', text: 'Comprei para o meu marido e ele ficou encantado com a qualidade. As cores são exatamente como na foto. Já vou pedir mais um kit!' },
+  { pic: 'av-male4.png', name: 'Claudio Ferreira', date: 'Fevereiro 5, 2026', text: 'Produto de altíssima qualidade. As costuras são impecáveis e o tecido tem uma maciez incrível. Muito satisfeito com a compra.' },
+  { pic: 'av-female2.png', name: 'Patrícia Alves', date: 'Fevereiro 3, 2026', text: 'Presenteei meu pai e ele adorou! As calças têm um caimento excelente e o material é muito bonito. A entrega foi rápida e bem embalada.' },
+  { pic: 'av-male1.png', name: 'Eduardo Barbosa', date: 'Fevereiro 1, 2026', text: 'Excelente custo-benefício! 5 calças de qualidade premium por esse preço é imperdível. O tecido sarja retrô é muito bonito e resistente.' },
+  { pic: 'av-male2.png', name: 'Luiz Henrique', date: 'Janeiro 29, 2026', text: 'Super satisfeito! As calças são lindas, bem acabadas e confortáveis. Já lavei duas vezes e não desbotaram nada. Excelente produto!' },
+  { pic: 'av-female1.png', name: 'Fátima Rocha', date: 'Janeiro 27, 2026', text: 'Comprei para presentear meu filho. Ele usou e disse que é o melhor kit de calças que já teve. Vai pedir mais um para o irmão!' },
+  { pic: 'av-male3.png', name: 'Roberto Carvalho', date: 'Janeiro 25, 2026', text: 'Chegou rapidinho, em apenas 6 dias úteis. As calças são de ótima qualidade, o caimento é perfeito e as cores são exatamente como na foto.' },
 ]
 
 export default function LandingPage() {
@@ -200,8 +199,39 @@ export default function LandingPage() {
           <span className="lp-pix-badge">5% OFF no PIX</span>
         </div>
         <CorreiosBanner />
-        {/* 11 kit selector */}
-        <KitSelector onBuy={(_kit) => { window.location.href = CHECKOUT_URL }} />
+
+        {/* 11 size picker */}
+        <div className="lp-size-section">
+          <div className="lp-size-label">
+            Tamanho: <span className="lp-size-sel">{selectedSize}</span>
+          </div>
+          <div className="lp-sizes-grid">
+            {SIZES.map(sz => (
+              <button
+                key={sz}
+                className={`lp-size${selectedSize === sz ? ' active' : ''}`}
+                onClick={() => setSelectedSize(sz)}
+              >
+                {sz}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* 12 buy button */}
+        <div className="lp-buy-wrap">
+          <button
+            className="lp-buy"
+            onClick={() => {
+              sessionStorage.setItem('selected_size', selectedSize)
+              window.location.href = CHECKOUT_URL
+            }}
+          >
+            <svg viewBox="0 0 24 24" width={18} height={18} fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M6 6h15l-1.5 9h-12L5 3H2"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>
+            COMPRAR AGORA
+          </button>
+          <p className="lp-buy-sub">Pagamento via Pix · Entrega garantida</p>
+        </div>
 
         {/* 17b reputation image */}
         <div style={{ padding: '0 14px 8px' }}>
