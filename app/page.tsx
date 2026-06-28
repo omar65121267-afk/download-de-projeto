@@ -16,6 +16,7 @@ const IMGS = [
   'fotoproduto7.webp',
   'fotoproduto8.webp',
   'fotoproduto9.jpg',
+  'fotoproduto10.jpg',
 ]
 
 const SIZES = ['36','38','40','42','44','46','48','50','52','54']
@@ -126,7 +127,7 @@ export default function LandingPage() {
         {/* 3 breadcrumb */}
         <nav className="lp-bread">
           <a href="#">Home</a><span className="sep">/</span><a href="#">Calças</a><span className="sep">/</span>
-          <span className="cur">Kit 5 Calças Masculinas em Sarja Retrô Premium – Pague 3, Leve 5</span>
+          <span className="cur">Kit 5 Calças de Alfaiataria em Tecido Sarja Tech Premium – Pague 3, Leve 5</span>
         </nav>
 
         {/* 4 gallery */}
@@ -154,7 +155,7 @@ export default function LandingPage() {
         </div>
 
         {/* 6 title */}
-        <h1 className="lp-title">Kit 5 Calças Masculinas em Sarja Retrô Premium – Pague 3, Leve 5</h1>
+        <h1 className="lp-title">Kit 5 Calças de Alfaiataria em Tecido Sarja Tech Premium – Pague 3, Leve 5</h1>
 
         {/* 7 meta */}
         <div className="lp-meta">Cód. ZYR2885634719 | Em estoque.</div>
@@ -179,9 +180,6 @@ export default function LandingPage() {
         <CorreiosBanner />
         {/* 11 kit selector */}
         <KitSelector onBuy={(_kit) => { window.location.href = CHECKOUT_URL }} />
-
-        {/* 17 desc */}
-        <div className="lp-desc-h">DESCRIÇÃO DO PRODUTO</div>
 
         {/* 17b reputation image */}
         <div style={{ padding: '0 14px 8px' }}>
@@ -221,27 +219,6 @@ export default function LandingPage() {
           ))}
         </div>
 
-        {/* 21 kit colors */}
-        <div className="lp-kit">
-          <div className="lp-kit-eb">O QUE VEM NO KIT</div>
-          <h3>5 calças, 5 cores, 1 só compra</h3>
-          <div className="lp-colors">
-            {[
-              { bg: '#111', label: 'Preto' },
-              { bg: '#1e3a8a', label: 'Marinho' },
-              { bg: '#c4a47a', label: 'Cáqui' },
-              { bg: '#d1d5db', label: 'Cinza' },
-              { bg: '#f3ead8', label: 'Branco' },
-            ].map((c, i) => (
-              <div key={i} className="lp-color">
-                <div className="lp-dot" style={{ background: c.bg }} />
-                <small>{c.label}</small>
-              </div>
-            ))}
-          </div>
-          <div className="lp-sizes-note">TAMANHOS DISPONÍVEIS: 36 AO 54</div>
-        </div>
-
         {/* 23 how */}
         <div className="lp-eyebrow">SIMPLES E RÁPIDO</div>
         <h2 className="lp-h2">Como funciona</h2>
@@ -269,6 +246,27 @@ export default function LandingPage() {
             <b>Garantia de 7 dias</b>
             <span>Se não amar o caimento, a gente troca ou devolve seu dinheiro. Sem complicação, conforme o CDC.</span>
           </div>
+        </div>
+
+        {/* kit colors */}
+        <div className="lp-kit">
+          <div className="lp-kit-eb">O QUE VEM NO KIT</div>
+          <h3>5 calças, 5 cores, 1 só compra</h3>
+          <div className="lp-colors">
+            {[
+              { bg: '#111', label: 'Preto' },
+              { bg: '#1e3a8a', label: 'Marinho' },
+              { bg: '#c4a47a', label: 'Cáqui' },
+              { bg: '#d1d5db', label: 'Cinza' },
+              { bg: '#f3ead8', label: 'Branco' },
+            ].map((c, i) => (
+              <div key={i} className="lp-color">
+                <div className="lp-dot" style={{ background: c.bg }} />
+                <small>{c.label}</small>
+              </div>
+            ))}
+          </div>
+          <div className="lp-sizes-note">TAMANHOS DISPONÍVEIS: 36 AO 54</div>
         </div>
 
         {/* 26 testimonials */}
@@ -484,15 +482,12 @@ export default function LandingPage() {
           className="lp-stk-buy"
           onClick={() => { setPendingSize(selectedSize); setSizePickerOpen(true) }}
         >
-          <span style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <svg viewBox="0 0 24 24" width={18} height={18} fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-              <path d="M6 6h15l-1.5 9h-12L5 3H2"/>
-              <circle cx="9" cy="20" r="1.5"/>
-              <circle cx="18" cy="20" r="1.5"/>
-            </svg>
-            COMPRAR AGORA
-          </span>
-          <span>R$ 139,00</span>
+          <svg viewBox="0 0 24 24" width={18} height={18} fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+            <path d="M6 6h15l-1.5 9h-12L5 3H2"/>
+            <circle cx="9" cy="20" r="1.5"/>
+            <circle cx="18" cy="20" r="1.5"/>
+          </svg>
+          COMPRAR AGORA
         </button>
       </div>
 
