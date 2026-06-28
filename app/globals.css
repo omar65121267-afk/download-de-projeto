@@ -148,7 +148,10 @@ input,select{font-family:inherit;font-size:14px;color:#111}
 .lp-drawer-foot{padding:14px 18px;border-top:1px solid #f3f4f6;color:#6b7280;font-size:12px}
 
 .lp-wrap{max-width:430px;margin:0 auto;background:#fff;padding-bottom:90px;position:relative}
-.lp-topbar{background:#000;color:#fff;text-align:center;padding:9px 12px;font-size:12px;font-weight:500}
+.lp-topbar{background:#000;color:#fff;overflow:hidden;padding:9px 0;font-size:12px;font-weight:500;white-space:nowrap}
+.lp-topbar-track{display:inline-flex;animation:ticker 28s linear infinite}
+.lp-topbar-item{padding:0 32px;flex-shrink:0}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 .lp-header{background:#000;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:10px 18px}
 .lp-header-white{background:#fff;color:#111;border-bottom:1px solid #eee}
 .lp-menu{font-size:22px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;color:#fff}
@@ -376,7 +379,8 @@ input,select{font-family:inherit;font-size:14px;color:#111}
 .lp-rlist{padding:14px 18px 0}
 .lp-review{border:1px solid #e5e7eb;border-radius:14px;padding:16px;margin-bottom:12px}
 .lp-review-h{display:flex;align-items:center;gap:10px}
-.lp-av{width:38px;height:38px;border-radius:50%;background:#111;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;flex:0 0 38px;font-size:13px;line-height:1;overflow:hidden;text-align:center}
+.lp-av{width:42px;height:42px;border-radius:50%;background:#e5e7eb;flex:0 0 42px;overflow:hidden}
+.lp-av img{width:100%;height:100%;object-fit:cover;object-position:top}
 .lp-rnm{flex:1}
 .lp-rnm b{display:block;font-size:14px;font-weight:700}
 .lp-rnm small{font-size:12px;color:#9ca3af}
@@ -394,7 +398,7 @@ input,select{font-family:inherit;font-size:14px;color:#111}
 
 /* Sticky bar */
 .lp-sticky-bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:#fff;border-top:1px solid #e5e7eb;padding:10px 14px 16px;z-index:50;box-shadow:0 -4px 16px rgba(0,0,0,.10)}
-.lp-stk-buy{background:#111;color:#fff;width:100%;padding:15px 18px;border-radius:10px;display:flex;align-items:center;justify-content:space-between;font-weight:800;font-size:15px;letter-spacing:.04em;cursor:pointer;border:none}
+.lp-stk-buy{background:#111;color:#fff;width:100%;padding:15px 18px;border-radius:10px;display:flex;align-items:center;justify-content:center;gap:8px;font-weight:800;font-size:15px;letter-spacing:.04em;cursor:pointer;border:none}
 .lp-stk-buy:active{opacity:.88}
 
 /* Size picker bottom sheet */

@@ -37,16 +37,16 @@ const TESTIMONIALS = [
 ]
 
 const REVIEWS = [
-  { init: 'M', name: 'Marcos Oliveira', date: 'Fevereiro 13, 2026', text: 'Produto chegou bem embalado e no prazo. A qualidade da sarja é excelente, muito melhor do que eu esperava pelo preço. Vale muito a pena o kit!' },
-  { init: 'R', name: 'Raimundo Souza', date: 'Fevereiro 11, 2026', text: 'Comprei o kit e fiquei impressionado. As 5 calças são todas de ótima qualidade, o tecido é encorpado e bem acabado. Recomendo demais!' },
-  { init: 'G', name: 'Gilberto Nunes', date: 'Fevereiro 9, 2026', text: 'Entrega rápida, produto conforme descrito. As calças têm um caimento ótimo e o material é de primeira. Compra aprovada!' },
-  { init: 'S', name: 'Sandra Mota', date: 'Fevereiro 7, 2026', text: 'Comprei para o meu marido e ele ficou encantado com a qualidade. As cores são exatamente como na foto. Já vou pedir mais um kit!' },
-  { init: 'C', name: 'Claudio Ferreira', date: 'Fevereiro 5, 2026', text: 'Produto de altíssima qualidade. As costuras são impecáveis e o tecido tem uma maciez incrível. Muito satisfeito com a compra.' },
-  { init: 'P', name: 'Patrícia Alves', date: 'Fevereiro 3, 2026', text: 'Presenteei meu pai e ele adorou! As calças têm um caimento excelente e o material é muito bonito. A entrega foi rápida e bem embalada.' },
-  { init: 'E', name: 'Eduardo Barbosa', date: 'Fevereiro 1, 2026', text: 'Excelente custo-benefício! 5 calças de qualidade premium por esse preço é imperdível. O tecido sarja retrô é muito bonito e resistente.' },
-  { init: 'L', name: 'Luiz Henrique', date: 'Janeiro 29, 2026', text: 'Super satisfeito! As calças são lindas, bem acabadas e confortáveis. Já lavei duas vezes e não desbotaram nada. Excelente produto!' },
-  { init: 'F', name: 'Fátima Rocha', date: 'Janeiro 27, 2026', text: 'Comprei para presentear meu filho. Ele usou e disse que é o melhor kit de calças que já teve. Vai pedir mais um para o irmão!' },
-  { init: 'Ro', name: 'Roberto Carvalho', date: 'Janeiro 25, 2026', text: 'Chegou rapidinho, em apenas 6 dias úteis. As calças são de ótima qualidade, o caimento é perfeito e as cores são exatamente como na foto.' },
+  { pic: 'dep1.jpg', name: 'Marcos Oliveira', date: 'Fevereiro 13, 2026', text: 'Produto chegou bem embalado e no prazo. A qualidade da sarja é excelente, muito melhor do que eu esperava pelo preço. Vale muito a pena o kit!' },
+  { pic: 'dep2.jpg', name: 'Raimundo Souza', date: 'Fevereiro 11, 2026', text: 'Comprei o kit e fiquei impressionado. As 5 calças são todas de ótima qualidade, o tecido é encorpado e bem acabado. Recomendo demais!' },
+  { pic: 'dep3.jpg', name: 'Gilberto Nunes', date: 'Fevereiro 9, 2026', text: 'Entrega rápida, produto conforme descrito. As calças têm um caimento ótimo e o material é de primeira. Compra aprovada!' },
+  { pic: 'dep4.jpg', name: 'Sandra Mota', date: 'Fevereiro 7, 2026', text: 'Comprei para o meu marido e ele ficou encantado com a qualidade. As cores são exatamente como na foto. Já vou pedir mais um kit!' },
+  { pic: 'dep5.jpg', name: 'Claudio Ferreira', date: 'Fevereiro 5, 2026', text: 'Produto de altíssima qualidade. As costuras são impecáveis e o tecido tem uma maciez incrível. Muito satisfeito com a compra.' },
+  { pic: 'ft1.jpg', name: 'Patrícia Alves', date: 'Fevereiro 3, 2026', text: 'Presenteei meu pai e ele adorou! As calças têm um caimento excelente e o material é muito bonito. A entrega foi rápida e bem embalada.' },
+  { pic: 'ft2.jpg', name: 'Eduardo Barbosa', date: 'Fevereiro 1, 2026', text: 'Excelente custo-benefício! 5 calças de qualidade premium por esse preço é imperdível. O tecido sarja retrô é muito bonito e resistente.' },
+  { pic: 'ft3.jpg', name: 'Luiz Henrique', date: 'Janeiro 29, 2026', text: 'Super satisfeito! As calças são lindas, bem acabadas e confortáveis. Já lavei duas vezes e não desbotaram nada. Excelente produto!' },
+  { pic: 'ft4.jpg', name: 'Fátima Rocha', date: 'Janeiro 27, 2026', text: 'Comprei para presentear meu filho. Ele usou e disse que é o melhor kit de calças que já teve. Vai pedir mais um para o irmão!' },
+  { pic: 'ft5.jpg', name: 'Roberto Carvalho', date: 'Janeiro 25, 2026', text: 'Chegou rapidinho, em apenas 6 dias úteis. As calças são de ótima qualidade, o caimento é perfeito e as cores são exatamente como na foto.' },
 ]
 
 export default function LandingPage() {
@@ -110,7 +110,29 @@ export default function LandingPage() {
 
         {/* 1 topbar */}
         <div className="lp-topbar">
-          <span className="heart">♡</span> Diversidade e Qualidade em um clique
+          <div className="lp-topbar-track">
+            {[
+              '♡ Diversidade e Qualidade em um clique',
+              '🔥 Estoque limitado — garanta o seu agora',
+              '⚡ Últimas unidades do lote promocional',
+              '🚚 Envio GRÁTIS para todo o Brasil',
+              '✅ Mais de 50.000 clientes satisfeitos',
+              '⏳ Oferta por tempo limitado — não perca!',
+            ].map((msg, i) => (
+              <span key={i} className="lp-topbar-item">{msg}</span>
+            ))}
+            {/* duplicate for seamless loop */}
+            {[
+              '♡ Diversidade e Qualidade em um clique',
+              '🔥 Estoque limitado — garanta o seu agora',
+              '⚡ Últimas unidades do lote promocional',
+              '🚚 Envio GRÁTIS para todo o Brasil',
+              '✅ Mais de 50.000 clientes satisfeitos',
+              '⏳ Oferta por tempo limitado — não perca!',
+            ].map((msg, i) => (
+              <span key={`b${i}`} className="lp-topbar-item">{msg}</span>
+            ))}
+          </div>
         </div>
 
         {/* 2 header */}
@@ -118,7 +140,7 @@ export default function LandingPage() {
           <button className="lp-menu lp-menu-dark" onClick={() => setDrawerOpen(true)} aria-label="Menu">
             <svg viewBox="0 0 24 24" width="22" height="22" stroke="#111" strokeWidth="2" fill="none"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
           </button>
-          <img src="/assets/4men-logo-black.png" alt="4MEN" style={{ height: 54, objectFit: 'contain' }} />
+          <img src="/assets/4men-logo-black.png" alt="4MEN" style={{ height: 66, objectFit: 'contain' }} />
           <button className="lp-cart-btn" aria-label="Carrinho" onClick={() => buyNow()}>
             <svg viewBox="0 0 24 24" width="24" height="24" stroke="#111" strokeWidth="2" fill="none"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
           </button>
@@ -415,7 +437,7 @@ export default function LandingPage() {
           {REVIEWS.map((r, i) => (
             <div key={i} className="lp-review">
               <div className="lp-review-h">
-                <div className="lp-av">{r.init}</div>
+                <div className="lp-av"><img src={`/assets/${r.pic}`} alt={r.name} /></div>
                 <div className="lp-rnm">
                   <b>{r.name}</b>
                   <small>{r.date}</small>
@@ -461,6 +483,14 @@ export default function LandingPage() {
           {['Contato','Rastrear Pedido','Sobre Nós','Informações Gerais','Busca','FAQ'].map(l => (
             <a key={l} href="#">{l}</a>
           ))}
+          <h5>ENDEREÇO</h5>
+          <div className="lp-foot-line">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            <span>Av. Brg. Faria Lima, 6363 - Jardim Morumbi,<br/>São José do Rio Preto - SP, 15090-000</span>
+          </div>
+          <div style={{ marginTop: 10, fontSize: 12, color: '#94a3b8' }}>
+            CNPJ: 37.293.930/0001-90
+          </div>
         </footer>
 
       </div>
@@ -482,12 +512,14 @@ export default function LandingPage() {
           className="lp-stk-buy"
           onClick={() => { setPendingSize(selectedSize); setSizePickerOpen(true) }}
         >
-          <svg viewBox="0 0 24 24" width={18} height={18} fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-            <path d="M6 6h15l-1.5 9h-12L5 3H2"/>
-            <circle cx="9" cy="20" r="1.5"/>
-            <circle cx="18" cy="20" r="1.5"/>
-          </svg>
-          COMPRAR AGORA
+          <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, width: '100%' }}>
+            <svg viewBox="0 0 24 24" width={18} height={18} fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              <path d="M6 6h15l-1.5 9h-12L5 3H2"/>
+              <circle cx="9" cy="20" r="1.5"/>
+              <circle cx="18" cy="20" r="1.5"/>
+            </svg>
+            COMPRAR AGORA
+          </span>
         </button>
       </div>
 
