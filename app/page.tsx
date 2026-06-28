@@ -178,29 +178,6 @@ export default function LandingPage() {
         {/* 11 kit selector */}
         <KitSelector onBuy={(_kit) => { window.location.href = CHECKOUT_URL }} />
 
-        {/* 12 pay */}
-        <div className="lp-pay-static">
-          🔒 Pague com segurança usando <b>estas opções de pagamento</b>
-        </div>
-
-        {/* 13 trust 3 */}
-        <div className="lp-trust3">
-          <div className="lp-trust-card">
-            <svg viewBox="0 0 24 24"><path d="M3 6h13v10H3z"/><path d="M16 9h4l2 3v4h-6z"/><circle cx="7" cy="18" r="1.5"/><circle cx="18" cy="18" r="1.5"/></svg>
-            <b>Frete Grátis</b><span>para todo Brasil</span>
-          </div>
-          <div className="lp-trust-card">
-            <svg viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
-            <b>Compra Segura</b><span>seus dados protegidos</span>
-          </div>
-          <div className="lp-trust-card">
-            <svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0114-5l2-2v6h-6"/><path d="M20 12a8 8 0 01-14 5l-2 2v-6h6"/></svg>
-            <b>Troca Grátis</b><span>em até 30 dias</span>
-          </div>
-        </div>
-
-
-
         {/* 17 desc */}
         <div className="lp-desc-h">DESCRIÇÃO DO PRODUTO</div>
 
@@ -252,29 +229,6 @@ export default function LandingPage() {
             ))}
           </div>
           <div className="lp-sizes-note">TAMANHOS DISPONÍVEIS: 36 AO 54</div>
-        </div>
-
-        {/* 22 compare */}
-        <div className="lp-compare">
-          <div className="lp-eyebrow">POR QUE ESCOLHER A 4MEN</div>
-          <h3>Compare antes de decidir</h3>
-          <div className="lp-divider" />
-          <table>
-            <thead>
-              <tr>
-                <th>Critério</th>
-                <th className="gold">Kit 4MEN</th>
-                <th className="red">Loja Comum</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>5 calças por uma compra</td><td>Sim</td><td>Não</td></tr>
-              <tr><td>Sarja Retrô Premium</td><td>Sim</td><td>Tecido básico</td></tr>
-              <tr><td>Preço por peça</td><td>R$ 25,58</td><td>R$ 89+</td></tr>
-              <tr><td>Troca em 7 dias garantida</td><td>Sim</td><td>Limitada</td></tr>
-              <tr><td>Envio do Brasil</td><td>Sim</td><td>Importado</td></tr>
-            </tbody>
-          </table>
         </div>
 
         {/* 23 how */}
