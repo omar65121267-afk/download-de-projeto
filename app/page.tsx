@@ -183,6 +183,15 @@ export default function LandingPage() {
         {/* 17 desc */}
         <div className="lp-desc-h">DESCRIÇÃO DO PRODUTO</div>
 
+        {/* 17b reputation image */}
+        <div style={{ padding: '0 14px 8px' }}>
+          <img
+            src="/assets/reputacao-4men.png"
+            alt="Por que é seguro comprar na 4MEN - Reputação ReclameAQUI Ótimo"
+            style={{ width: '100%', borderRadius: 12, display: 'block' }}
+          />
+        </div>
+
         {/* 19 alert */}
         <div className="lp-alert lp-alert-urgent">
           <div className="lp-alert-ic">🔥</div>
