@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout | 4MEN</title>
+  <meta name="description" content="Kit 5 Calças de Alfaiataria em Tecido Sarja Tech Premium – Pague 3, Leve 5" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- overlay drawer -->
+  <div id="drawerOverlay" class="lp-overlay" style="display:none"></div>
+
+  <aside id="drawer" class="lp-drawer">
+    <div class="lp-drawer-h">
+      <img src="assets/4men-logo.png" alt="4MEN" style="height:32px;object-fit:contain" />
+      <button class="lp-drawer-close" data-drawer-close>×</button>
+    </div>
+    <nav class="lp-drawer-nav">
+      <a href="#" data-drawer-close>
+        <svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9"/><path d="M5 10v10h14V10"/></svg>
+        Início
+      </a>
+      <a href="#faq" data-drawer-close>
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16v.1"/></svg>
+        FAQ
+      </a>
+      <a href="#contato" data-drawer-close>
+        <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 7 9-7"/></svg>
+        Contato
+      </a>
+    </nav>
+    <div class="lp-drawer-foot">© 4MEN · help@4men.co</div>
+  </aside>
+
+  <div class="lp-wrap">
+
+    <!-- 1 topbar -->
+    <div class="lp-topbar">
+      <div class="lp-topbar-track">
+        <span class="lp-topbar-item">♡ Diversidade e Qualidade em um clique</span>
+        <span class="lp-topbar-item">🔥 Estoque limitado — garanta o seu agora</span>
+        <span class="lp-topbar-item">⚡ Últimas unidades do lote promocional</span>
+        <span class="lp-topbar-item">🚚 Envio GRÁTIS para todo o Brasil</span>
+        <span class="lp-topbar-item">✅ Mais de 50.000 clientes satisfeitos</span>
+        <span class="lp-topbar-item">⏳ Oferta por tempo limitado — não perca!</span>
+        <span class="lp-topbar-item">♡ Diversidade e Qualidade em um clique</span>
+        <span class="lp-topbar-item">🔥 Estoque limitado — garanta o seu agora</span>
+        <span class="lp-topbar-item">⚡ Últimas unidades do lote promocional</span>
+        <span class="lp-topbar-item">🚚 Envio GRÁTIS para todo o Brasil</span>
+        <span class="lp-topbar-item">✅ Mais de 50.000 clientes satisfeitos</span>
+        <span class="lp-topbar-item">⏳ Oferta por tempo limitado — não perca!</span>
+      </div>
+    </div>
+
+    <!-- 2 header -->
+    <header class="lp-header lp-header-white">
+      <button class="lp-menu lp-menu-dark" data-drawer-open aria-label="Menu">
+        <svg viewBox="0 0 24 24" width="22" height="22" stroke="#111" stroke-width="2" fill="none"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <img src="assets/4men-logo-black.png" alt="4MEN" style="height:66px;object-fit:contain" />
+      <button class="lp-cart-btn" aria-label="Carrinho" data-buy>
+        <svg viewBox="0 0 24 24" width="24" height="24" stroke="#111" stroke-width="2" fill="none"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      </button>
+    </header>
+
+    <!-- 3 breadcrumb -->
+    <nav class="lp-bread">
+      <a href="#">Home</a><span class="sep">/</span><a href="#">Calças</a><span class="sep">/</span>
+      <span class="cur">Kit 5 Calças de Alfaiataria em Tecido Sarja Tech Premium – Pague 3, Leve 5</span>
+    </nav>
+
+    <!-- 4 gallery -->
+    <div class="lp-gal">
+      <div class="lp-gal-main">
+        <img id="mainImg" src="assets/fotoproduto1.webp" alt="Calça Sarja Retrô Premium" />
+      </div>
+      <div class="lp-thumbs" id="thumbs">
+        <button class="active" data-img="fotoproduto1.webp"><img src="assets/fotoproduto1.webp" alt="Foto 1" /></button>
+        <button data-img="fotoproduto2.webp"><img src="assets/fotoproduto2.webp" alt="Foto 2" /></button>
+        <button data-img="fotoproduto3.webp"><img src="assets/fotoproduto3.webp" alt="Foto 3" /></button>
+        <button data-img="fotoproduto4.webp"><img src="assets/fotoproduto4.webp" alt="Foto 4" /></button>
+        <button data-img="fotoproduto5.webp"><img src="assets/fotoproduto5.webp" alt="Foto 5" /></button>
+        <button data-img="fotoproduto6.webp"><img src="assets/fotoproduto6.webp" alt="Foto 6" /></button>
+        <button data-img="fotoproduto7.webp"><img src="assets/fotoproduto7.webp" alt="Foto 7" /></button>
+        <button data-img="fotoproduto8.webp"><img src="assets/fotoproduto8.webp" alt="Foto 8" /></button>
+        <button data-img="fotoproduto9.jpg"><img src="assets/fotoproduto9.jpg" alt="Foto 9" /></button>
+        <button data-img="fotoproduto10.jpg"><img src="assets/fotoproduto10.jpg" alt="Foto 10" /></button>
+      </div>
+    </div>
+
+    <!-- 5 badges -->
+    <div class="lp-badges">
+      <span class="lp-badge lp-badge-promo">Promoção: Pague 3 Leve 5</span>
+      <span class="lp-badge lp-badge-off">57% OFF</span>
+    </div>
+
+    <!-- 6 title -->
+    <h1 class="lp-title">Kit 5 Calças de Alfaiataria em Tecido Sarja Tech Premium – Pague 3, Leve 5</h1>
+
+    <!-- 7 meta -->
+    <div class="lp-meta">Cód. ZYR2885634719 | Em estoque.</div>
+
+    <!-- 8 stars -->
+    <div class="lp-stars-row">
+      <span class="lp-stars">★★★★★</span>
+      <span class="lp-stars-count">1.595 avaliações</span>
+    </div>
+
+    <!-- 9 price -->
+    <div class="lp-price">
+      <span class="lp-price-old">R$ 299,00</span>
+      <span class="lp-price-now">R$ 139,00</span>
+    </div>
+    <div class="lp-eco">Economia de R$ 160,00</div>
+    <div class="lp-pix-row">
+      <img src="assets/pix-icon.png" alt="Pix" width="20" height="20" style="object-fit:contain" />
+      <span class="lp-pix-price">R$ 132,05</span>
+      <span class="lp-pix-badge">5% OFF no PIX</span>
+    </div>
+
+    <!-- correios banner -->
+    <div class="correios-banner">
+      <img src="assets/correios-logo.png" alt="Correios" class="correios-logo" />
+      <div class="correios-info">
+        <span class="correios-title">Correios - Envio de 2 a 5 dias</span>
+        <span class="correios-sub">Envio <b>GRÁTIS</b> para <span id="correiosLocation">todo o Brasil</span></span>
+      </div>
+    </div>
+
+    <!-- 11 size picker -->
+    <div class="lp-size-section">
+      <div class="lp-size-label">
+        Tamanho: <span class="lp-size-sel" id="sizeSel">36</span>
+      </div>
+      <div class="lp-sizes-grid" id="sizesGrid">
+        <button class="lp-size active" data-size="36">36</button>
+        <button class="lp-size" data-size="38">38</button>
+        <button class="lp-size" data-size="40">40</button>
+        <button class="lp-size" data-size="42">42</button>
+        <button class="lp-size" data-size="44">44</button>
+        <button class="lp-size" data-size="46">46</button>
+        <button class="lp-size" data-size="48">48</button>
+        <button class="lp-size" data-size="50">50</button>
+        <button class="lp-size" data-size="52">52</button>
+        <button class="lp-size" data-size="54">54</button>
+      </div>
+    </div>
+
+    <!-- 12 buy button -->
+    <div class="lp-buy-wrap">
+      <button class="lp-buy" data-buy>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6h15l-1.5 9h-12L5 3H2"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>
+        COMPRAR AGORA
+      </button>
+    </div>
+
+    <!-- 19 alert -->
+    <div class="lp-alert lp-alert-urgent">
+      <div class="lp-alert-ic">🔥</div>
+      <div>
+        <b>Restam poucas unidades do lote promocional</b>
+        <span class="lp-alert-sub">Garanta o seu antes que acabe!</span>
+      </div>
+    </div>
+
+    <!-- 20 features -->
+    <div class="lp-eyebrow">POR QUE ESSE KIT FUNCIONA</div>
+    <h2 class="lp-h2 lp-h2-bold">CUIDADO COM CADA DETALHE</h2>
+    <div class="lp-divider"></div>
+    <div class="lp-features">
+      <div class="lp-feat">
+        <div class="lp-icbox"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-12"/></svg></div>
+        <div><b>Sarja Retrô Premium</b><span>Tecido de toque firme, caimento de alfaiataria e durabilidade superior.</span></div>
+      </div>
+      <div class="lp-feat">
+        <div class="lp-icbox"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-12"/></svg></div>
+        <div><b>Modelagem Versátil</b><span>Funciona no trabalho, em compromissos e no dia a dia sem esforço.</span></div>
+      </div>
+      <div class="lp-feat">
+        <div class="lp-icbox"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-12"/></svg></div>
+        <div><b>5 Cores Atemporais</b><span>Combinações fáceis, sem erro: monte semanas inteiras com 1 só compra.</span></div>
+      </div>
+      <div class="lp-feat">
+        <div class="lp-icbox"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-12"/></svg></div>
+        <div><b>Envio Rápido do Brasil</b><span>Despacho com agilidade e rastreio do início ao fim da entrega.</span></div>
+      </div>
+    </div>
+
+    <!-- 23 how -->
+    <div class="lp-eyebrow">SIMPLES E RÁPIDO</div>
+    <h2 class="lp-h2">Como funciona</h2>
+    <div class="lp-divider"></div>
+    <div class="lp-how">
+      <div class="lp-how-card">
+        <div class="lp-how-num">1</div>
+        <b>Escolha seu tamanho</b>
+        <span>Selecione o tamanho do 36 ao 54 e personalize seu kit.</span>
+      </div>
+      <div class="lp-how-card">
+        <div class="lp-how-num">2</div>
+        <b>Finalize com segurança</b>
+        <span>Pague via Pix de forma rápida e segura. Compra protegida.</span>
+      </div>
+      <div class="lp-how-card">
+        <div class="lp-how-num">3</div>
+        <b>Receba em casa</b>
+        <span>Despacho rápido com rastreio. Vista-se bem o ano inteiro.</span>
+      </div>
+    </div>
+
+    <!-- reputation image -->
+    <div style="padding:0 16px 8px">
+      <img src="assets/reputacao-4men.png" alt="Por que é seguro comprar na 4MEN - Reputação ReclameAQUI Ótimo" style="width:100%;border-radius:12px;display:block" />
+    </div>
+
+    <!-- 24 warranty -->
+    <div class="lp-warranty">
+      <div class="lp-warranty-ic">
+        <svg viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
+      </div>
+      <div>
+        <b>Garantia de 7 dias</b>
+        <span>Se não amar o caimento, a gente troca ou devolve seu dinheiro. Sem complicação, conforme o CDC.</span>
+      </div>
+    </div>
+
+    <!-- kit colors -->
+    <div class="lp-kit">
+      <div class="lp-kit-eb">O QUE VEM NO KIT</div>
+      <h3>5 calças, 5 cores, 1 só compra</h3>
+      <div class="lp-colors">
+        <div class="lp-color"><div class="lp-dot" style="background:#111"></div><small>Preto</small></div>
+        <div class="lp-color"><div class="lp-dot" style="background:#1e3a8a"></div><small>Marinho</small></div>
+        <div class="lp-color"><div class="lp-dot" style="background:#c4a47a"></div><small>Cáqui</small></div>
+        <div class="lp-color"><div class="lp-dot" style="background:#d1d5db"></div><small>Cinza</small></div>
+        <div class="lp-color"><div class="lp-dot" style="background:#f3ead8"></div><small>Branco</small></div>
+      </div>
+      <div class="lp-sizes-note">TAMANHOS DISPONÍVEIS: 36 AO 54</div>
+    </div>
+
+    <!-- 26 testimonials -->
+    <div class="lp-eyebrow">QUEM VESTIU, RECOMENDA</div>
+    <h2 class="lp-h2">Avaliações reais de clientes</h2>
+    <div class="lp-divider"></div>
+    <div class="lp-testi">
+      <div class="lp-testi-card">
+        <div class="lp-testi-pic"><img src="assets/ft1.jpg" alt="Depoimento de Carlos M." /></div>
+        <div class="lp-testi-name">Carlos M.</div>
+        <div class="lp-testi-quote">"</div>
+        <div class="lp-stars">★★★★★</div>
+        <p>Sinceramente surpreendido. Tecido firme, caimento ótimo e o preço por peça é absurdo de bom.</p>
+      </div>
+      <div class="lp-testi-card">
+        <div class="lp-testi-pic"><img src="assets/ft2.jpg" alt="Depoimento de Rafael S." /></div>
+        <div class="lp-testi-name">Rafael S.</div>
+        <div class="lp-testi-quote">"</div>
+        <div class="lp-stars">★★★★★</div>
+        <p>Comprei pra renovar o guarda-roupa e foi a melhor decisão. Cinco cores, combina com tudo.</p>
+      </div>
+      <div class="lp-testi-card">
+        <div class="lp-testi-pic"><img src="assets/ft3.jpg" alt="Depoimento de Leandro V." /></div>
+        <div class="lp-testi-name">Leandro V.</div>
+        <div class="lp-testi-quote">"</div>
+        <div class="lp-stars">★★★★★</div>
+        <p>Chegou rápido e bem embalado. Já estou de olho em comprar mais um kit pra dar de presente.</p>
+      </div>
+      <div class="lp-testi-card">
+        <div class="lp-testi-pic"><img src="assets/ft4.jpg" alt="Depoimento de Bruno A." /></div>
+        <div class="lp-testi-name">Bruno A.</div>
+        <div class="lp-testi-quote">"</div>
+        <div class="lp-stars">★★★★★</div>
+        <p>Servem perfeitamente. O acabamento é de loja cara. Recomendo pra quem cansou de pagar caro por uma só.</p>
+      </div>
+      <div class="lp-testi-card">
+        <div class="lp-testi-pic"><img src="assets/dep1.jpg" alt="Depoimento de Diego P." /></div>
+        <div class="lp-testi-name">Diego P.</div>
+        <div class="lp-testi-quote">"</div>
+        <div class="lp-stars">★★★★★</div>
+        <p>Calças confortáveis, qualidade excelente. Já comprei e indiquei pra vários amigos.</p>
+      </div>
+      <div class="lp-testi-card">
+        <div class="lp-testi-pic"><img src="assets/dep2.jpg" alt="Depoimento de Thiago N." /></div>
+        <div class="lp-testi-name">Thiago N.</div>
+        <div class="lp-testi-quote">"</div>
+        <div class="lp-stars">★★★★★</div>
+        <p>Material de primeira, caimento perfeito. Uso no trabalho e no dia a dia sem problema nenhum.</p>
+      </div>
+      <div class="lp-testi-card">
+        <div class="lp-testi-pic"><img src="assets/dep3.jpg" alt="Depoimento de Felipe R." /></div>
+        <div class="lp-testi-name">Felipe R.</div>
+        <div class="lp-testi-quote">"</div>
+        <div class="lp-stars">★★★★★</div>
+        <p>Kit incrível! Cinco calças pelo preço de três é surreal. Comprei e já vou pedir outro pra presentear.</p>
+      </div>
+      <div class="lp-testi-card">
+        <div class="lp-testi-pic"><img src="assets/dep4.jpg" alt="Depoimento de Matheus L." /></div>
+        <div class="lp-testi-name">Matheus L.</div>
+        <div class="lp-testi-quote">"</div>
+        <div class="lp-stars">★★★★★</div>
+        <p>Esperava algo mediano e recebi algo premium. Superou todas as expectativas. Vale cada centavo.</p>
+      </div>
+      <div class="lp-testi-card">
+        <div class="lp-testi-pic"><img src="assets/dep5.jpg" alt="Depoimento de André T." /></div>
+        <div class="lp-testi-name">André T.</div>
+        <div class="lp-testi-quote">"</div>
+        <div class="lp-stars">★★★★★</div>
+        <p>Entrega super rápida e embalagem impecável. Qualidade muito acima do esperado pelo valor do kit.</p>
+      </div>
+      <div class="lp-testi-card">
+        <div class="lp-testi-pic"><img src="assets/ft5.jpg" alt="Depoimento de Vinicius C." /></div>
+        <div class="lp-testi-name">Vinicius C.</div>
+        <div class="lp-testi-quote">"</div>
+        <div class="lp-stars">★★★★★</div>
+        <p>Caimento perfeito, usei com a polo e ficou um visual impecável. As calças são de ótima qualidade.</p>
+      </div>
+    </div>
+
+    <!-- 27 FAQ -->
+    <div class="lp-eyebrow">TIRE SUAS DÚVIDAS</div>
+    <h2 class="lp-h2">Perguntas Frequentes</h2>
+    <div class="lp-divider"></div>
+    <div class="lp-faq" id="faq">
+      <details>
+        <summary>Quais são as formas de pagamento?</summary>
+        <p>Aceitamos Pix. Tudo via ambiente 100% seguro com criptografia.</p>
+      </details>
+      <details>
+        <summary>Qual o prazo de entrega?</summary>
+        <p>Despachamos rapidamente do Brasil com código de rastreio. PAC de 3 a 9 dias úteis, SEDEX de 2 a 5 dias úteis.</p>
+      </details>
+      <details>
+        <summary>Como funciona a troca ou devolução?</summary>
+        <p>Você tem até 7 dias após o recebimento para solicitar a troca ou devolução, sem burocracia, conforme o Código de Defesa do Consumidor.</p>
+      </details>
+      <details>
+        <summary>O produto tem garantia?</summary>
+        <p>Sim. Garantia de qualidade em todas as peças. Se houver qualquer defeito de fabricação, trataremos com agilidade.</p>
+      </details>
+      <details>
+        <summary>Como escolher o tamanho correto?</summary>
+        <p>A modelagem segue padrão brasileiro (do 36 ao 54). Em caso de dúvida entre dois tamanhos, recomendamos optar pelo maior para mais conforto.</p>
+      </details>
+    </div>
+
+    <!-- 29 size guide -->
+    <div style="padding:0 16px 8px">
+      <img src="assets/guia-tamanhos.png" alt="Guia de Tamanhos - Calça Alfaiataria Tech 4MEN" style="width:100%;border-radius:12px;display:block" />
+    </div>
+
+    <!-- 32 mini trust -->
+    <div class="lp-minitrust">
+      <div class="lp-minitrust-c">
+        <svg viewBox="0 0 24 24"><path d="M4 7l8-3 8 3v10l-8 3-8-3z"/><path d="M9 13l2 2 4-4"/></svg>
+        <b>ENTREGA SEGURA<br/>TODO BRASIL</b>
+      </div>
+      <div class="lp-minitrust-c">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <b>DEVOLUÇÃO<br/>30 DIAS</b>
+      </div>
+      <div class="lp-minitrust-c">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3" fill="#111"/></svg>
+        <b>GARANTIA DE<br/>QUALIDADE</b>
+      </div>
+    </div>
+
+    <!-- 34 why 4men -->
+    <div class="lp-why-h">POR QUE ESCOLHER A<br/><b>4MEN?</b></div>
+    <div class="lp-whycards">
+      <div class="lp-whycard">
+        <svg viewBox="0 0 24 24"><path d="M3 7h13v10H3z"/><path d="M16 10h4l1 2v5h-5z"/><circle cx="7" cy="18" r="1.5"/><circle cx="18" cy="18" r="1.5"/></svg>
+        <div><b>FRETE GRÁTIS</b><span>Envio imediato para todo o Brasil</span></div>
+      </div>
+      <div class="lp-whycard">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <div><b>DEVOLUÇÃO</b><span>90 dias de garantia em todas as suas compras</span></div>
+      </div>
+      <div class="lp-whycard">
+        <svg viewBox="0 0 24 24"><path d="M12 22s7-7 7-13a7 7 0 10-14 0c0 6 7 13 7 13z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <div><b>RASTREIO</b><span>Atualizações em tempo real do seu pedido</span></div>
+      </div>
+      <div class="lp-whycard">
+        <svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 11h20"/></svg>
+        <div><b>PAGAMENTO</b><span>Pix seguro com confirmação automática</span></div>
+      </div>
+    </div>
+
+    <!-- 35 safe buy -->
+    <div class="lp-safebuy">
+      <h3>COMPRA SEGURA</h3>
+      <p>Sua compra protegida pela<br/><b>Lei nº 8.078/1990 – Código de Defesa do Consumidor.</b> Até 7 dias após<br/>o recebimento para troca ou devolução,<br/>sem complicação.</p>
+    </div>
+
+    <!-- 36 attention -->
+    <div class="lp-att">
+      <div class="lp-att-ic">
+        <svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/><path d="M12 7v5M12 15v.1"/></svg>
+      </div>
+      <h3>ATENÇÃO: NÃO CAIA EM GOLPES</h3>
+      <p>A 4MEN entrega mais de <b>50.000 pedidos<br/>anualmente</b>.<br/>Isso graças à confiança de nossos clientes e reputação<br/>consolidada no mercado.</p>
+      <div class="lp-att-box">Nunca forneça dados pessoais ou bancários por<br/>mensagens suspeitas. Entre em contato apenas<br/>com nosso SAC oficial.</div>
+    </div>
+
+    <!-- 37b Premio RA 2025 -->
+    <div style="display:flex;justify-content:center;padding:16px 0">
+      <img src="assets/ra2025.png" alt="Empresa Indicada Prêmio RA 2025" style="width:160px;height:auto" />
+    </div>
+
+    <!-- 39 big stats -->
+    <div class="lp-bigstat">
+      <div class="num">100 Mil</div>
+      <div class="lab">Pedidos Enviados</div>
+      <div class="txt">Enviamos para você onde você estiver com qualidade e agilidade comprovada!</div>
+    </div>
+    <div class="lp-bigstat">
+      <div class="num">5 anos</div>
+      <div class="lab">De experiência</div>
+      <div class="txt">Há cinco anos, a 4MEN seleciona a dedo os melhores produtos e entrega excelência em cada compra.</div>
+    </div>
+    <div class="lp-bigstat">
+      <div class="num">80 Mil</div>
+      <div class="lab">Clientes Satisfeitos</div>
+      <div class="txt">20% dos clientes voltam para novas compras, comprovando a confiança e a satisfação em cada pedido.</div>
+    </div>
+
+    <!-- 40 aggregate reviews -->
+    <div class="lp-reviews">
+      <div class="lp-reviews-h">AVALIAÇÕES DOS CLIENTES</div>
+      <div class="lp-agg">
+        <div class="score">4.8</div>
+        <div class="ss"><span>★★★★★</span></div>
+        <div class="based">Baseado em 373 avaliações</div>
+        <div class="row"><span>5 estrelas</span><div class="bar"><i style="width:90%"></i></div><span class="n">335</span></div>
+        <div class="row"><span>4 estrelas</span><div class="bar"><i style="width:12%"></i></div><span class="n">16</span></div>
+        <div class="row"><span>3 estrelas</span><div class="bar"><i style="width:10%"></i></div><span class="n">14</span></div>
+        <div class="row"><span>2 estrelas</span><div class="bar"><i style="width:3%"></i></div><span class="n">3</span></div>
+        <div class="row"><span>1 estrelas</span><div class="bar"><i style="width:5%"></i></div><span class="n">5</span></div>
+      </div>
+    </div>
+
+    <!-- 41 reviews list -->
+    <div class="lp-rlist">
+      <div class="lp-review">
+        <div class="lp-review-h">
+          <div class="lp-av"><img src="assets/av-male1.png" alt="Marcos Oliveira" /></div>
+          <div class="lp-rnm"><b>Marcos Oliveira</b><small>Fevereiro 13, 2026</small></div>
+          <div class="lp-rst">★★★★★</div>
+        </div>
+        <p>Produto chegou bem embalado e no prazo. A qualidade da sarja é excelente, muito melhor do que eu esperava pelo preço. Vale muito a pena o kit!</p>
+      </div>
+      <div class="lp-review">
+        <div class="lp-review-h">
+          <div class="lp-av"><img src="assets/av-male2.png" alt="Raimundo Souza" /></div>
+          <div class="lp-rnm"><b>Raimundo Souza</b><small>Fevereiro 11, 2026</small></div>
+          <div class="lp-rst">★★★★★</div>
+        </div>
+        <p>Comprei o kit e fiquei impressionado. As 5 calças são todas de ótima qualidade, o tecido é encorpado e bem acabado. Recomendo demais!</p>
+      </div>
+      <div class="lp-review">
+        <div class="lp-review-h">
+          <div class="lp-av"><img src="assets/av-male3.png" alt="Gilberto Nunes" /></div>
+          <div class="lp-rnm"><b>Gilberto Nunes</b><small>Fevereiro 9, 2026</small></div>
+          <div class="lp-rst">★★★★★</div>
+        </div>
+        <p>Entrega rápida, produto conforme descrito. As calças têm um caimento ótimo e o material é de primeira. Compra aprovada!</p>
+      </div>
+      <div class="lp-review">
+        <div class="lp-review-h">
+          <div class="lp-av"><img src="assets/av-female1.png" alt="Sandra Mota" /></div>
+          <div class="lp-rnm"><b>Sandra Mota</b><small>Fevereiro 7, 2026</small></div>
+          <div class="lp-rst">★★★★★</div>
+        </div>
+        <p>Comprei para o meu marido e ele ficou encantado com a qualidade. As cores são exatamente como na foto. Já vou pedir mais um kit!</p>
+      </div>
+      <div class="lp-review">
+        <div class="lp-review-h">
+          <div class="lp-av"><img src="assets/av-male4.png" alt="Claudio Ferreira" /></div>
+          <div class="lp-rnm"><b>Claudio Ferreira</b><small>Fevereiro 5, 2026</small></div>
+          <div class="lp-rst">★★★★★</div>
+        </div>
+        <p>Produto de altíssima qualidade. As costuras são impecáveis e o tecido tem uma maciez incrível. Muito satisfeito com a compra.</p>
+      </div>
+      <div class="lp-review">
+        <div class="lp-review-h">
+          <div class="lp-av"><img src="assets/av-female2.png" alt="Patrícia Alves" /></div>
+          <div class="lp-rnm"><b>Patrícia Alves</b><small>Fevereiro 3, 2026</small></div>
+          <div class="lp-rst">★★★★★</div>
+        </div>
+        <p>Presenteei meu pai e ele adorou! As calças têm um caimento excelente e o material é muito bonito. A entrega foi rápida e bem embalada.</p>
+      </div>
+      <div class="lp-review">
+        <div class="lp-review-h">
+          <div class="lp-av"><img src="assets/av-male1.png" alt="Eduardo Barbosa" /></div>
+          <div class="lp-rnm"><b>Eduardo Barbosa</b><small>Fevereiro 1, 2026</small></div>
+          <div class="lp-rst">★★★★★</div>
+        </div>
+        <p>Excelente custo-benefício! 5 calças de qualidade premium por esse preço é imperdível. O tecido sarja retrô é muito bonito e resistente.</p>
+      </div>
+      <div class="lp-review">
+        <div class="lp-review-h">
+          <div class="lp-av"><img src="assets/av-male2.png" alt="Luiz Henrique" /></div>
+          <div class="lp-rnm"><b>Luiz Henrique</b><small>Janeiro 29, 2026</small></div>
+          <div class="lp-rst">★★★★★</div>
+        </div>
+        <p>Super satisfeito! As calças são lindas, bem acabadas e confortáveis. Já lavei duas vezes e não desbotaram nada. Excelente produto!</p>
+      </div>
+      <div class="lp-review">
+        <div class="lp-review-h">
+          <div class="lp-av"><img src="assets/av-female1.png" alt="Fátima Rocha" /></div>
+          <div class="lp-rnm"><b>Fátima Rocha</b><small>Janeiro 27, 2026</small></div>
+          <div class="lp-rst">★★★★★</div>
+        </div>
+        <p>Comprei para presentear meu filho. Ele usou e disse que é o melhor kit de calças que já teve. Vai pedir mais um para o irmão!</p>
+      </div>
+      <div class="lp-review">
+        <div class="lp-review-h">
+          <div class="lp-av"><img src="assets/av-male3.png" alt="Roberto Carvalho" /></div>
+          <div class="lp-rnm"><b>Roberto Carvalho</b><small>Janeiro 25, 2026</small></div>
+          <div class="lp-rst">★★★★★</div>
+        </div>
+        <p>Chegou rapidinho, em apenas 6 dias úteis. As calças são de ótima qualidade, o caimento é perfeito e as cores são exatamente como na foto.</p>
+      </div>
+    </div>
+
+    <!-- community vitrine -->
+    <div class="lp-vitrine">
+      <div class="lp-vitrine-eyebrow">COMUNIDADE 4MEN</div>
+      <div class="lp-vitrine-title">Junte-se a <b>50.000+</b><br/>clientes satisfeitos</div>
+      <div class="lp-vitrine-marquee">
+        <div class="lp-vitrine-track">
+          <div class="lp-vitrine-slide"><img src="assets/calca1.webp" alt="" /></div>
+          <div class="lp-vitrine-slide"><img src="assets/calca2.webp" alt="" /></div>
+          <div class="lp-vitrine-slide"><img src="assets/calca3.webp" alt="" /></div>
+          <div class="lp-vitrine-slide"><img src="assets/calca4.webp" alt="" /></div>
+          <div class="lp-vitrine-slide"><img src="assets/calca5.webp" alt="" /></div>
+          <div class="lp-vitrine-slide"><img src="assets/calca6.webp" alt="" /></div>
+          <div class="lp-vitrine-slide"><img src="assets/calca1.webp" alt="" /></div>
+          <div class="lp-vitrine-slide"><img src="assets/calca2.webp" alt="" /></div>
+          <div class="lp-vitrine-slide"><img src="assets/calca3.webp" alt="" /></div>
+          <div class="lp-vitrine-slide"><img src="assets/calca4.webp" alt="" /></div>
+          <div class="lp-vitrine-slide"><img src="assets/calca5.webp" alt="" /></div>
+          <div class="lp-vitrine-slide"><img src="assets/calca6.webp" alt="" /></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="lp-foot" id="contato">
+      <h5>ATENDIMENTO AO CLIENTE</h5>
+      <div class="lp-foot-line">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <span>Atendimento: seg. à sex. 09 às 18h</span>
+      </div>
+      <div class="lp-foot-line">
+        <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 7 9-7"/></svg>
+        <span>help@4men.co</span>
+      </div>
+      <h5>POLÍTICAS E TERMOS</h5>
+      <a href="#">Aviso Legal</a>
+      <a href="#">Formas de Pagamento</a>
+      <a href="#">Política de Devolução</a>
+      <a href="#">Política de Privacidade e Cookies</a>
+      <a href="#">Política de Frete</a>
+      <a href="#">Política de Privacidade</a>
+      <a href="#">Política de Troca e Devolução</a>
+      <a href="#">Termos de Serviço</a>
+      <h5>INFORMAÇÕES</h5>
+      <a href="#">Contato</a>
+      <a href="#">Rastrear Pedido</a>
+      <a href="#">Sobre Nós</a>
+      <a href="#">Informações Gerais</a>
+      <a href="#">Busca</a>
+      <a href="#">FAQ</a>
+      <h5>ENDEREÇO</h5>
+      <div class="lp-foot-line">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <span>Av. Brg. Faria Lima, 6363 - Jardim Morumbi,<br/>São José do Rio Preto - SP, 15090-000</span>
+      </div>
+      <div style="margin-top:10px;font-size:12px;color:#94a3b8">CNPJ: 37.293.930/0001-90</div>
+    </footer>
+
+  </div>
+
+  <!-- Botao WhatsApp flutuante -->
+  <a href="https://wa.me/5582956345244" target="_blank" rel="noopener noreferrer" class="lp-whatsapp-btn" aria-label="Contato via WhatsApp">
+    <img src="assets/whatsapp.png" alt="WhatsApp" width="44" height="44" />
+  </a>
+
+  <!-- Sticky bar fixa -->
+  <div class="lp-sticky-bar">
+    <button class="lp-stk-buy" data-open-sheet>
+      <span style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M6 6h15l-1.5 9h-12L5 3H2"/>
+          <circle cx="9" cy="20" r="1.5"/>
+          <circle cx="18" cy="20" r="1.5"/>
+        </svg>
+        COMPRAR AGORA
+      </span>
+    </button>
+  </div>
+
+  <!-- Size picker bottom sheet -->
+  <div id="sheetOverlay" class="lp-sheet-overlay" style="display:none"></div>
+  <div id="sizeSheet" class="lp-size-sheet" style="display:none">
+    <div class="lp-sheet-handle"></div>
+    <div class="lp-sheet-title">Selecione o tamanho</div>
+    <div class="lp-sheet-label">TAMANHO</div>
+    <div class="lp-sheet-grid" id="sheetGrid">
+      <button class="lp-size active" data-sheet-size="36">36</button>
+      <button class="lp-size" data-sheet-size="38">38</button>
+      <button class="lp-size" data-sheet-size="40">40</button>
+      <button class="lp-size" data-sheet-size="42">42</button>
+      <button class="lp-size" data-sheet-size="44">44</button>
+      <button class="lp-size" data-sheet-size="46">46</button>
+      <button class="lp-size" data-sheet-size="48">48</button>
+      <button class="lp-size" data-sheet-size="50">50</button>
+      <button class="lp-size" data-sheet-size="52">52</button>
+      <button class="lp-size" data-sheet-size="54">54</button>
+    </div>
+    <button class="lp-sheet-confirm" id="sheetConfirm">Confirmar e comprar &nbsp;·&nbsp; R$ 139,00</button>
+    <button class="lp-sheet-cancel" data-close-sheet>Cancelar</button>
+  </div>
+
+  <script>
+    var CHECKOUT_URL = 'https://checkout.4menbr.store/pay/b82a0773-2e50-4a33-8fdb-320836fefb5b';
+    var selectedSize = '36';
+    var pendingSize = '36';
+
+    function buyNow(size) {
+      var sz = size || selectedSize;
+      try { sessionStorage.setItem('selected_size', sz); } catch (e) {}
+      window.location.href = CHECKOUT_URL;
+    }
+
+    // Drawer
+    var drawer = document.getElementById('drawer');
+    var drawerOverlay = document.getElementById('drawerOverlay');
+    function openDrawer() { drawer.classList.add('on'); drawerOverlay.style.display = 'block'; }
+    function closeDrawer() { drawer.classList.remove('on'); drawerOverlay.style.display = 'none'; }
+    document.querySelectorAll('[data-drawer-open]').forEach(function (el) { el.addEventListener('click', openDrawer); });
+    document.querySelectorAll('[data-drawer-close]').forEach(function (el) { el.addEventListener('click', closeDrawer); });
+    drawerOverlay.addEventListener('click', closeDrawer);
+
+    // Gallery thumbs
+    var mainImg = document.getElementById('mainImg');
+    document.querySelectorAll('#thumbs button').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('#thumbs button').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        mainImg.src = 'assets/' + btn.getAttribute('data-img');
+      });
+    });
+
+    // Size selection
+    var sizeSel = document.getElementById('sizeSel');
+    document.querySelectorAll('#sizesGrid .lp-size').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('#sizesGrid .lp-size').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        selectedSize = btn.getAttribute('data-size');
+        sizeSel.textContent = selectedSize;
+      });
+    });
+
+    // Direct buy buttons
+    document.querySelectorAll('[data-buy]').forEach(function (el) {
+      el.addEventListener('click', function () { buyNow(selectedSize); });
+    });
+
+    // Size picker bottom sheet
+    var sheetOverlay = document.getElementById('sheetOverlay');
+    var sizeSheet = document.getElementById('sizeSheet');
+    function openSheet() {
+      pendingSize = selectedSize;
+      document.querySelectorAll('#sheetGrid .lp-size').forEach(function (b) {
+        b.classList.toggle('active', b.getAttribute('data-sheet-size') === pendingSize);
+      });
+      sheetOverlay.style.display = 'block';
+      sizeSheet.style.display = 'block';
+    }
+    function closeSheet() { sheetOverlay.style.display = 'none'; sizeSheet.style.display = 'none'; }
+    document.querySelectorAll('[data-open-sheet]').forEach(function (el) { el.addEventListener('click', openSheet); });
+    document.querySelectorAll('[data-close-sheet]').forEach(function (el) { el.addEventListener('click', closeSheet); });
+    sheetOverlay.addEventListener('click', closeSheet);
+    document.querySelectorAll('#sheetGrid .lp-size').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('#sheetGrid .lp-size').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        pendingSize = btn.getAttribute('data-sheet-size');
+      });
+    });
+    document.getElementById('sheetConfirm').addEventListener('click', function () {
+      selectedSize = pendingSize;
+      sizeSel.textContent = selectedSize;
+      document.querySelectorAll('#sizesGrid .lp-size').forEach(function (b) {
+        b.classList.toggle('active', b.getAttribute('data-size') === selectedSize);
+      });
+      closeSheet();
+      buyNow(pendingSize);
+    });
+
+    // Correios geo
+    fetch('https://ip-api.com/json/?fields=city,regionName')
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (data.city && data.regionName) {
+          document.getElementById('correiosLocation').textContent = data.city + ', ' + data.regionName + ' e Região';
+        }
+      })
+      .catch(function () {});
+  </script>
+
+</body>
+</html>
