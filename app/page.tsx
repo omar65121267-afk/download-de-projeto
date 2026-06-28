@@ -230,16 +230,7 @@ export default function LandingPage() {
             <svg viewBox="0 0 24 24" width={18} height={18} fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M6 6h15l-1.5 9h-12L5 3H2"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>
             COMPRAR AGORA
           </button>
-          <p className="lp-buy-sub">Pagamento via Pix · Entrega garantida</p>
-        </div>
 
-        {/* 17b reputation image */}
-        <div style={{ padding: '0 14px 8px' }}>
-          <img
-            src="/assets/reputacao-4men.png"
-            alt="Por que é seguro comprar na 4MEN - Reputação ReclameAQUI Ótimo"
-            style={{ width: '100%', borderRadius: 12, display: 'block' }}
-          />
         </div>
 
         {/* 19 alert */}
@@ -253,7 +244,7 @@ export default function LandingPage() {
 
         {/* 20 features */}
         <div className="lp-eyebrow">POR QUE ESSE KIT FUNCIONA</div>
-        <h2 className="lp-h2">Cuidado com cada detalhe</h2>
+        <h2 className="lp-h2 lp-h2-bold">CUIDADO COM CADA DETALHE</h2>
         <div className="lp-divider" />
         <div className="lp-features">
           {[
@@ -287,6 +278,15 @@ export default function LandingPage() {
               <span>{h.desc}</span>
             </div>
           ))}
+        </div>
+
+        {/* reputation image after SIMPLES E RAPIDO */}
+        <div style={{ padding: '0 16px 8px' }}>
+          <img
+            src="/assets/reputacao-4men.png"
+            alt="Por que é seguro comprar na 4MEN - Reputação ReclameAQUI Ótimo"
+            style={{ width: '100%', borderRadius: 12, display: 'block' }}
+          />
         </div>
 
         {/* 24 warranty */}
@@ -358,25 +358,13 @@ export default function LandingPage() {
           ))}
         </div>
 
-        {/* 29-31 specs */}
-        <div className="lp-specs">
-          <h4>Características</h4>
-          <ul>
-            <li>Material de alta qualidade selecionado</li>
-            <li>Acabamento premium com atenção aos detalhes</li>
-            <li>Design moderno e atemporal</li>
-            <li>Conforto excepcional para uso diário</li>
-            <li>Durabilidade garantida</li>
-          </ul>
-          <h4>Composição</h4>
-          <p>Produzido com materiais selecionados de fornecedores certificados, garantindo qualidade e sustentabilidade em toda a cadeia produtiva.</p>
-          <h4>Cuidados</h4>
-          <ul>
-            <li>Lavar à máquina em água fria</li>
-            <li>Não usar alvejante</li>
-            <li>Secar à sombra</li>
-            <li>Passar em temperatura média</li>
-          </ul>
+        {/* 29 size guide */}
+        <div style={{ padding: '0 16px 8px' }}>
+          <img
+            src="/assets/guia-tamanhos.png"
+            alt="Guia de Tamanhos - Calça Alfaiataria Tech 4MEN"
+            style={{ width: '100%', borderRadius: 12, display: 'block' }}
+          />
         </div>
 
         {/* 32 mini trust */}
