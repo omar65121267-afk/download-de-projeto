@@ -60,7 +60,7 @@ export default function LandingPage() {
 
   const overlayRef = useRef<HTMLDivElement>(null)
 
-  const CHECKOUT_URL = 'https://loja.zyron-oficial.sbs/pay/ccc718f1-71d8-422a-95c9-21b80d163b4e?payment=f8460b71-b5d9-4dfb-919c-f462e7066b6b'
+  const CHECKOUT_URL = 'https://checkout.4menbr.store/pay/b82a0773-2e50-4a33-8fdb-320836fefb5b'
 
   function buyNow(size?: string) {
     const sz = size || selectedSize
