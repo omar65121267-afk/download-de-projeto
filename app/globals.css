@@ -150,7 +150,13 @@ input,select{font-family:inherit;font-size:14px;color:#111}
 .lp-wrap{max-width:430px;margin:0 auto;background:#fff;padding-bottom:90px;position:relative}
 .lp-topbar{background:#000;color:#fff;text-align:center;padding:9px 12px;font-size:12px;font-weight:500}
 .lp-header{background:#000;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:10px 18px}
+.lp-header-white{background:#fff;color:#111;border-bottom:1px solid #eee}
 .lp-menu{font-size:22px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;color:#fff}
+.lp-menu-dark{color:#111}
+.lp-cart-btn{width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:none;border:none;cursor:pointer;padding:0}
+.lp-pix-row{margin:6px 18px 2px;background:#f4f4f4;border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:8px}
+.lp-pix-price{font-size:17px;font-weight:800;color:#111;letter-spacing:-.01em}
+.lp-pix-badge{font-size:12px;font-weight:600;color:#555}
 .lp-bread{padding:14px 18px 4px;font-size:13px;color:#555}
 .lp-bread a{color:#666}
 .lp-bread .sep{color:#999;margin:0 4px}
