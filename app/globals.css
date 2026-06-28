@@ -428,7 +428,7 @@ input,select{font-family:inherit;font-size:14px;color:#111}
 .lp-whatsapp-btn{position:fixed;right:14px;bottom:94px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;z-index:55;transition:transform .15s;filter:drop-shadow(0 3px 8px rgba(0,0,0,.28))}
 .lp-whatsapp-btn:active{transform:scale(.90)}
 .lp-whatsapp-btn img{width:44px;height:44px;display:block;border-radius:0}
-/* ──────────────────────────────────────────────────────────────── */
+/* ──��───────────────────────────────────────────────────────────── */
 
 @custom-variant dark (&:is(.dark *));
 
@@ -576,3 +576,11 @@ input,select{font-family:inherit;font-size:14px;color:#111}
 .ks-summary-row span:last-child{font-weight:600;color:#111}
 .ks-buy-btn{background:#111;color:#fff;border:none;border-radius:10px;padding:16px;font-size:15px;font-weight:700;cursor:pointer;letter-spacing:.01em;transition:opacity .15s}
 .ks-buy-btn:active{opacity:.85}
+
+/* ── Correios Banner ─────────────────────────────── */
+.correios-banner{display:flex;align-items:center;gap:12px;margin:10px 18px 4px;background:#f8f8f8;border:1px solid #e5e5e5;border-radius:10px;padding:12px 14px}
+.correios-logo{width:48px;height:auto;object-fit:contain;flex:0 0 48px}
+.correios-info{display:flex;flex-direction:column;gap:2px}
+.correios-title{font-size:13px;font-weight:600;color:#222}
+.correios-sub{font-size:12px;color:#555}
+.correios-sub b{color:#222}

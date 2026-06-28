@@ -4,6 +4,7 @@ import { useState, useRef } from 'react'
 
 import Image from 'next/image'
 import { KitSelector } from '@/components/kit-selector'
+import { CorreiosBanner } from '@/components/correios-banner'
 
 const IMGS = [
   'fotoproduto1.webp',
@@ -165,14 +166,15 @@ export default function LandingPage() {
         {/* 9 price */}
         <div className="lp-price">
           <span className="lp-price-old">R$ 299,00</span>
-          <span className="lp-price-now">R$ 127,90</span>
+          <span className="lp-price-now">R$ 139,00</span>
         </div>
-        <div className="lp-eco">Economia de R$ 171,10</div>
+        <div className="lp-eco">Economia de R$ 160,00</div>
         <div className="lp-pix-row">
           <svg viewBox="0 0 512 512" width="20" height="20" aria-hidden="true"><path d="M112.57 391.19a63.48 63.48 0 0 0 45.16 18.67h169.82a63.48 63.48 0 0 0 45.16-18.67l94.6-94.6a63.49 63.49 0 0 0 0-81.18l-94.6-94.6a63.48 63.48 0 0 0-45.16-18.67H157.73a63.48 63.48 0 0 0-45.16 18.67l-94.6 94.6a63.49 63.49 0 0 0 0 81.18z" fill="#32BCAD"/><path d="M306.08 338.86l-44.27-44.27a7.26 7.26 0 0 0-5.13-2.12 7.26 7.26 0 0 0-5.13 2.12l-44.45 44.45a35.61 35.61 0 0 1-25.34 10.49h-8.9l56.12 56.12a36.28 36.28 0 0 0 51.32 0l56.3-56.3h-5.18a35.61 35.61 0 0 1-25.34-10.49zm-124.98-165.72a35.61 35.61 0 0 1 25.34 10.49l44.45 44.45a7.25 7.25 0 0 0 10.26 0l44.09-44.09a35.61 35.61 0 0 1 25.34-10.49h5.18l-56.3-56.3a36.28 36.28 0 0 0-51.32 0l-56.12 56.12h8.72z" fill="#fff"/><path d="M438.24 217.01l-31.97-31.97h-11.09a28.13 28.13 0 0 0-20.01 8.29l-44.09 44.09a14.75 14.75 0 0 1-20.9 0l-44.27-44.27a28.13 28.13 0 0 0-20.01-8.29h-14.25l-44.45 44.45a28.13 28.13 0 0 0-8.29 20.01v1.36a28.13 28.13 0 0 0 8.29 20.01l44.45 44.45h14.25a28.13 28.13 0 0 0 20.01-8.29l44.27-44.27a14.75 14.75 0 0 1 20.9 0l44.09 44.09a28.13 28.13 0 0 0 20.01 8.29h11.09l31.97-31.97a36.28 36.28 0 0 0 0-65.98z" fill="#fff"/></svg>
-          <span className="lp-pix-price">R$ 121,51</span>
+          <span className="lp-pix-price">R$ 132,05</span>
           <span className="lp-pix-badge">5% OFF no PIX</span>
         </div>
+        <CorreiosBanner />
         {/* 11 kit selector */}
         <KitSelector onBuy={(_kit) => { window.location.href = CHECKOUT_URL }} />
 
@@ -199,35 +201,8 @@ export default function LandingPage() {
 
 
 
-        {/* 15 community vitrine */}
-        <div className="lp-vitrine">
-          <div className="lp-vitrine-eyebrow">COMUNIDADE 4MEN</div>
-          <div className="lp-vitrine-title">Junte-se a <b>50.000+</b><br/>clientes satisfeitos</div>
-          <div className="lp-vitrine-marquee">
-            <div className="lp-vitrine-track">
-              {[...MARQUEE_IMGS, ...MARQUEE_IMGS].map((img, i) => (
-                <div key={i} className="lp-vitrine-slide">
-                  <img src={`/assets/${img}`} alt="" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
         {/* 17 desc */}
         <div className="lp-desc-h">DESCRIÇÃO DO PRODUTO</div>
-
-        {/* 18 promo dark */}
-        <div className="lp-promo-dark">
-          <span className="lp-pill">PROMOÇÃO PAGUE 3 · LEVE 5</span>
-          <h3>Vista-se com <span className="gold">presença</span><br/>todos os dias da semana</h3>
-          <p>5 calças de Sarja Retrô Premium pelo preço de 3. Um kit pensado para quem quer um visual maduro, prático e versátil.</p>
-          <div className="lp-boxes">
-            <div className="b"><div className="v">5</div><div className="l">CALÇAS</div></div>
-            <div className="b"><div className="v">1</div><div className="l">PREÇO</div></div>
-            <div className="b"><div className="v">R$ 25</div><div className="l">POR PEÇA</div></div>
-          </div>
-        </div>
 
         {/* 19 alert */}
         <div className="lp-alert lp-alert-urgent">
@@ -374,7 +349,7 @@ export default function LandingPage() {
           <h3>5 calças. 1 compra.<br/>Pra sempre estiloso.</h3>
           <p className="lp-cta-desc">Promoção Pague 3, Leve 5 enquanto durarem as últimas unidades.</p>
           <div className="lp-cta-prices">
-            <span className="now">R$ 127,90</span>
+            <span className="now">R$ 139,00</span>
             <span className="old">R$ 299,00</span>
           </div>
           <button
@@ -512,6 +487,21 @@ export default function LandingPage() {
           ))}
         </div>
 
+        {/* community vitrine */}
+        <div className="lp-vitrine">
+          <div className="lp-vitrine-eyebrow">COMUNIDADE 4MEN</div>
+          <div className="lp-vitrine-title">Junte-se a <b>50.000+</b><br/>clientes satisfeitos</div>
+          <div className="lp-vitrine-marquee">
+            <div className="lp-vitrine-track">
+              {[...MARQUEE_IMGS, ...MARQUEE_IMGS].map((img, i) => (
+                <div key={i} className="lp-vitrine-slide">
+                  <img src={`/assets/${img}`} alt="" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
         {/* footer */}
         <footer className="lp-foot" id="contato">
           <h5>ATENDIMENTO AO CLIENTE</h5>
@@ -560,7 +550,7 @@ export default function LandingPage() {
             </svg>
             COMPRAR AGORA
           </span>
-          <span>R$ 127,90</span>
+          <span>R$ 139,00</span>
         </button>
       </div>
 
@@ -595,7 +585,7 @@ export default function LandingPage() {
                 buyNow(pendingSize)
               }}
             >
-              Confirmar e comprar &nbsp;·&nbsp; R$ 127,90
+              Confirmar e comprar &nbsp;·&nbsp; R$ 139,00
             </button>
             <button className="lp-sheet-cancel" onClick={() => setSizePickerOpen(false)}>
               Cancelar
